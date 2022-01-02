@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "67009691717",
+    "project_id": "eshopie-6d082",
+    "storage_bucket": "eshopie-6d082.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:67009691717:android:75c7fb17c55d449c42a32c",
+        "android_client_info": {
+          "package_name": "com.example.eshopie"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "67009691717-h60ktpjhdap05u3doppo9hr17r8i4fv7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDepsg6FauImiBoohNocMeutBxqKuVyCH8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "67009691717-h60ktpjhdap05u3doppo9hr17r8i4fv7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

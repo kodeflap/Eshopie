@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Eshopie</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="forgot_password">Forgot password??</string>
+    <string name="sign_in">Sign In</string>
+    <string name="don_t_have_an_account">Don\'t have an account</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="email_id">Email id</string>
+    <string name="full_name">Full Name</string>
+    <string name="password">password</string>
+    <string name="already_have_an_account">Already have an account??</string>
+</resources>
