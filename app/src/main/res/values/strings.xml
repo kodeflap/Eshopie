@@ -10,4 +10,8 @@
     <string name="full_name">Full Name</string>
     <string name="password">password</string>
     <string name="already_have_an_account">Already have an account??</string>
+    <string name="forgot_msg">Don\'t worry, we just need your registered email</string>
+    <string name="forgot_editText_msg">Provide your registered email</string>
+    <string name="forgot_goBack"><![CDATA[< < Go back]]></string>
+    <string name="forgot_msg2">Recovery email sent successfully! Please check your inbox.</string>
 </resources>

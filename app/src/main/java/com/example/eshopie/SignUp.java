@@ -5,6 +5,7 @@ import static com.example.eshopie.R.color.teal_200;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -31,6 +32,11 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class SignUp extends Fragment {
@@ -53,6 +59,7 @@ public class SignUp extends Fragment {
     private ProgressBar progressBar;
 
     private FirebaseAuth firebaseAuth;
+    private FirebaseFirestore firebaseFirestore;
 
     private String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+.[a-z]+";
 
@@ -76,6 +83,7 @@ public class SignUp extends Fragment {
         progressBar = view.findViewById(R.id.signUp_progressBar);
 
         firebaseAuth = FirebaseAuth.getInstance();
+        firebaseFirestore = FirebaseFirestore.getInstance();
 
         return  view;
     }
@@ -87,6 +95,13 @@ public class SignUp extends Fragment {
             @Override
             public void onClick(View v) {
                 setFragment(new SignIn());
+            }
+        });
+
+        closeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intentFunction();
             }
         });
 
@@ -167,6 +182,10 @@ public class SignUp extends Fragment {
     }
 
     private void checkEmailAndPassword() {
+
+        Drawable customError = getResources().getDrawable(R.drawable.error_icon);
+        customError.setBounds(0,0,customError.getIntrinsicWidth(),customError.getIntrinsicHeight());
+
         if (email.getText().toString().matches(emailPattern)) {
             if (password.getText().toString().equals(conPassword.getText().toString())) {
 
@@ -179,9 +198,29 @@ public class SignUp extends Fragment {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
-                                    Intent intent = new Intent(getActivity(), HomeActivity.class);
-                                    startActivity(intent);
-                                    getActivity().finish();
+
+                                    Map<Object,String> userData = new HashMap<>();
+                                    userData.put("fullname",fullName.getText().toString());
+
+                                    firebaseFirestore.collection("USERS")
+                                            .add(userData)
+                                            .addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
+                                                @Override
+                                                public void onComplete(@NonNull Task<DocumentReference> task) {
+                                                    if (task.isSuccessful()){
+                                                        intentFunction();
+                                                    }
+                                                    else {
+                                                        progressBar.setVisibility(View.INVISIBLE);
+                                                        registerBtn.setEnabled(true);
+                                                        registerBtn.setTextColor(Color.rgb(255,255,255));
+                                                        String error = task.getException().getMessage();
+                                                        Toast.makeText(getActivity(), error, Toast.LENGTH_LONG).show();
+                                                    }
+                                                }
+                                            });
+
+
                                 } else {
                                     progressBar.setVisibility(View.INVISIBLE);
                                     registerBtn.setEnabled(true);
@@ -192,12 +231,18 @@ public class SignUp extends Fragment {
                             }
                         });
             } else {
-                conPassword.setError("Password doesn't match");
+                conPassword.setError("Password doesn't match",customError);
             }
         }
         else {
-            email.setError("Invalid Email");
+            email.setError("Invalid Email",customError);
         }
+    }
+
+    private void intentFunction() {
+        Intent intent = new Intent(getActivity(), HomeActivity.class);
+        startActivity(intent);
+        getActivity().finish();
     }
 
     private void checkInputs() {
