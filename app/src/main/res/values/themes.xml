@@ -29,4 +29,13 @@
         <item name="colorOnPrimary">@color/red</item>
     </style>
 
+    <style name="Theme.Eshopie.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.Eshopie.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.Eshopie.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
 </resources>

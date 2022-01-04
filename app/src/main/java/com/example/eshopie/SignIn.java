@@ -1,5 +1,7 @@
 package com.example.eshopie;
 
+import static com.example.eshopie.RegisterActivity.onResetPasswordFragment;
+
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -93,6 +95,7 @@ public class SignIn extends Fragment {
         forgotPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                onResetPasswordFragment = true;
                 setFragment(new ResetPassword());
             }
         });
