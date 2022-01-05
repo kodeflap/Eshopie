@@ -28,4 +28,6 @@
     <string name="search">search</string>
     <string name="notification">notification</string>
     <string name="cart">cart</string>
+    <string name="not_signed_in">Not signed in</string>
+    <string name="email_address">Email Address</string>
 </resources>
