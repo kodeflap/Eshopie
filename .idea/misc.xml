@@ -9,12 +9,14 @@
         <entry key="..\:/Eshopie2/app/src/main/res/layout/activity_register.xml" value="0.16485507246376813" />
         <entry key="..\:/Eshopie2/app/src/main/res/layout/activity_splash_screen.xml" value="0.19947916666666668" />
         <entry key="..\:/Eshopie2/app/src/main/res/layout/app_bar_home.xml" value="0.26823238566131025" />
+        <entry key="..\:/Eshopie2/app/src/main/res/layout/category_item.xml" value="0.33" />
         <entry key="..\:/Eshopie2/app/src/main/res/layout/content_home.xml" value="0.16621376811594202" />
+        <entry key="..\:/Eshopie2/app/src/main/res/layout/fragment_gallery.xml" value="0.1721014492753623" />
         <entry key="..\:/Eshopie2/app/src/main/res/layout/fragment_home.xml" value="0.16621376811594202" />
         <entry key="..\:/Eshopie2/app/src/main/res/layout/fragment_reset_password.xml" value="0.40625" />
         <entry key="..\:/Eshopie2/app/src/main/res/layout/fragment_sign_in.xml" value="0.22" />
         <entry key="..\:/Eshopie2/app/src/main/res/layout/fragment_sign_up.xml" value="0.16485507246376813" />
-        <entry key="..\:/Eshopie2/app/src/main/res/layout/nav_header_home.xml" value="0.5502248875562219" />
+        <entry key="..\:/Eshopie2/app/src/main/res/layout/nav_header_home.xml" value="0.40585009140767825" />
         <entry key="..\:/Eshopie2/app/src/main/res/menu/activity_main_drawer.xml" value="0.19947916666666668" />
         <entry key="..\:/Eshopie2/app/src/main/res/menu/home.xml" value="0.19947916666666668" />
       </map>

@@ -124,8 +124,8 @@ public class ResetPassword extends Fragment {
 
                                         @Override
                                         public void onAnimationEnd(Animation animation) {
-                                           emailIcon.setText("Recovery email sent successfully! Check your inbox");
-                                           emailIcon.setTextColor(getResources().getColor(R.color.green));
+                                          // emailIcon.setText("Recovery email sent successfully! Check your inbox");
+                                          // emailIcon.setTextColor(getResources().getColor(R.color.green));
 
                                            TransitionManager.beginDelayedTransition(emailIconContainer);
                                            emailIcon.setVisibility(View.VISIBLE);
