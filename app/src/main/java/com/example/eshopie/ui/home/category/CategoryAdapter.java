@@ -1,10 +1,11 @@
-package com.example.eshopie.ui.category;
+package com.example.eshopie.ui.home.category;
+
 
 import android.view.LayoutInflater;
-import android.view.TextureView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -46,7 +47,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
     public class ViewHolder extends RecyclerView.ViewHolder{
 
         private ImageView categoryIcon;
-        private TextureView categoryName;
+        private TextView categoryName;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
