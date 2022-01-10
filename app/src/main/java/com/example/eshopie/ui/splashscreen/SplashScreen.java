@@ -1,4 +1,4 @@
-package com.example.eshopie;
+package com.example.eshopie.ui.splashscreen;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,6 +6,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.SystemClock;
 
+import com.example.eshopie.HomeActivity;
+import com.example.eshopie.R;
+import com.example.eshopie.ui.register.RegisterActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 

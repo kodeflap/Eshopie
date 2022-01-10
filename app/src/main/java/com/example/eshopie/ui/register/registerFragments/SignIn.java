@@ -1,6 +1,6 @@
-package com.example.eshopie;
+package com.example.eshopie.ui.register.registerFragments;
 
-import static com.example.eshopie.RegisterActivity.onResetPasswordFragment;
+import static com.example.eshopie.ui.register.RegisterActivity.onResetPasswordFragment;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -25,6 +25,8 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.eshopie.HomeActivity;
+import com.example.eshopie.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -205,7 +207,7 @@ public class SignIn extends Fragment {
     }
 
     private void intentFunction() {
-        Intent intent = new Intent(getActivity(),HomeActivity.class);
+        Intent intent = new Intent(getActivity(), HomeActivity.class);
         startActivity(intent);
         getActivity().finish();
     }

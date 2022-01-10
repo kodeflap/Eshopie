@@ -12,13 +12,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Eshopie">
         <activity
+            android:name=".ui.category.CategoryActivity"
+            android:exported="false" />
+        <activity
             android:name=".HomeActivity"
             android:exported="false"
             android:label="@string/title_activity_home"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.Eshopie.NoActionBar" />
         <activity
-            android:name=".SplashScreen"
+            android:name=".ui.splashscreen.SplashScreen"
             android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.SplashTheme">
@@ -29,7 +32,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".RegisterActivity"
+            android:name=".ui.register.RegisterActivity"
             android:exported="true"
             android:screenOrientation="portrait" />
     </application>

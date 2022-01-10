@@ -1,4 +1,4 @@
-package com.example.eshopie;
+package com.example.eshopie.ui.register.registerFragments;
 
 import android.graphics.Color;
 import android.os.Bundle;
@@ -24,8 +24,8 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.example.eshopie.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;

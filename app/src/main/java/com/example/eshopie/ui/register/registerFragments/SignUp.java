@@ -1,8 +1,5 @@
-package com.example.eshopie;
+package com.example.eshopie.ui.register.registerFragments;
 
-import static com.example.eshopie.R.color.teal_200;
-
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
@@ -26,8 +23,10 @@ import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.ToggleButton;
 
+import com.example.eshopie.HomeActivity;
+import com.example.eshopie.R;
+import com.example.eshopie.ui.register.registerFragments.SignIn;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
