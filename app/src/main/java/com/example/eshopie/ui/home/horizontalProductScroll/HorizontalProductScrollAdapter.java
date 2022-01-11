@@ -14,6 +14,7 @@ import com.example.eshopie.R;
 import com.example.eshopie.model.HorizontalProductScrollModal;
 import com.example.eshopie.ui.product.ProductDetails;
 
+
 import java.util.List;
 
 public class HorizontalProductScrollAdapter extends RecyclerView.Adapter<HorizontalProductScrollAdapter.ViewHolder> {
