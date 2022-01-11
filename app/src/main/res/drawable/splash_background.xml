@@ -7,6 +7,6 @@
     </item>
 
     <item>
-        <bitmap android:src="@mipmap/ic_launcher" android:gravity="center"/>
+        <bitmap android:src="@drawable/registerbg" android:gravity="center"/>
     </item>
 </layer-list>
