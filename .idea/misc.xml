@@ -3,12 +3,21 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Eshopie2/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1315" />
+        <entry key="..\:/Eshopie2/app/src/main/res/drawable/border_bg.xml" value="0.1315" />
+        <entry key="..\:/Eshopie2/app/src/main/res/drawable/button_bg.xml" value="0.1315" />
+        <entry key="..\:/Eshopie2/app/src/main/res/drawable/cart.xml" value="0.1315" />
+        <entry key="..\:/Eshopie2/app/src/main/res/drawable/close_button.xml" value="0.1315" />
         <entry key="..\:/Eshopie2/app/src/main/res/drawable/default_dot.xml" value="0.1315" />
         <entry key="..\:/Eshopie2/app/src/main/res/drawable/dot_selector.xml" value="0.1315" />
+        <entry key="..\:/Eshopie2/app/src/main/res/drawable/ic_baseline_shopping_basket_24.xml" value="0.1315" />
+        <entry key="..\:/Eshopie2/app/src/main/res/drawable/nav_signout.xml" value="0.1315" />
         <entry key="..\:/Eshopie2/app/src/main/res/drawable/reward_gradient_bg.xml" value="0.1315" />
+        <entry key="..\:/Eshopie2/app/src/main/res/drawable/search.xml" value="0.1315" />
         <entry key="..\:/Eshopie2/app/src/main/res/drawable/selected_dot.xml" value="0.1315" />
         <entry key="..\:/Eshopie2/app/src/main/res/drawable/slider_bg.xml" value="0.134" />
         <entry key="..\:/Eshopie2/app/src/main/res/drawable/splash_background.xml" value="0.131" />
+        <entry key="..\:/Eshopie2/app/src/main/res/drawable/wishlist.xml" value="0.1315" />
         <entry key="..\:/Eshopie2/app/src/main/res/layout/activity_category.xml" value="0.1675929884566054" />
         <entry key="..\:/Eshopie2/app/src/main/res/layout/activity_home.xml" value="0.16621376811594202" />
         <entry key="..\:/Eshopie2/app/src/main/res/layout/activity_login.xml" value="0.19947916666666668" />
@@ -23,7 +32,7 @@
         <entry key="..\:/Eshopie2/app/src/main/res/layout/fragment_product.xml" value="0.1659111514052584" />
         <entry key="..\:/Eshopie2/app/src/main/res/layout/fragment_product_description.xml" value="0.1659111514052584" />
         <entry key="..\:/Eshopie2/app/src/main/res/layout/fragment_product_specification.xml" value="0.1659111514052584" />
-        <entry key="..\:/Eshopie2/app/src/main/res/layout/fragment_reset_password.xml" value="0.40625" />
+        <entry key="..\:/Eshopie2/app/src/main/res/layout/fragment_reset_password.xml" value="0.1" />
         <entry key="..\:/Eshopie2/app/src/main/res/layout/fragment_sign_in.xml" value="0.22" />
         <entry key="..\:/Eshopie2/app/src/main/res/layout/fragment_sign_up.xml" value="0.16485507246376813" />
         <entry key="..\:/Eshopie2/app/src/main/res/layout/grid_product_layout.xml" value="0.1675929884566054" />
