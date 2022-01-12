@@ -11,6 +11,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.RatingBar;
 
 import com.example.eshopie.R;
 import com.example.eshopie.ui.product.adapter.ProductDetailsAdapter;
@@ -28,6 +30,9 @@ public class ProductDetails extends AppCompatActivity {
 
     private ViewPager productDetailsViewPager;
     private TabLayout productDetailsTabLayout;
+
+    /*-----------------------------------rating layout-------------------------*/
+    private RatingBar rateNowContainer;
 
     private FloatingActionButton addToWishlistButton;
     private static boolean ALREADY_ADDED_TO_WISHLIST = false;
@@ -94,6 +99,8 @@ public class ProductDetails extends AppCompatActivity {
             }
         });
 
+        /*------------rating--------------*/
+        rateNowContainer = findViewById(R.id.rating_bar_container);
     }
 
     @Override

@@ -67,32 +67,32 @@ public class HomeFragment extends Fragment {
 
         List<SliderModel> sliderModelList = new ArrayList<SliderModel>();
 
-        sliderModelList.add(new SliderModel(R.drawable.ic_menu_gallery,"#077AE4"));
-        sliderModelList.add(new SliderModel(R.drawable.home,"#077AE4"));
-        sliderModelList.add(new SliderModel(R.drawable.mail_green,"#077AE4"));
+        sliderModelList.add(new SliderModel(R.drawable.banner_add,"#077AE4"));
+        sliderModelList.add(new SliderModel(R.drawable.phone,"#077AE4"));
+        sliderModelList.add(new SliderModel(R.drawable.horizontal_banner_ad,"#077AE4"));
 
         sliderModelList.add(new SliderModel(R.drawable.mail_red,"#077AE4"));
         sliderModelList.add(new SliderModel(R.drawable.ic_menu_slideshow,"#077AE4"));
         sliderModelList.add(new SliderModel(R.drawable.ic_menu_camera,"#077AE4"));
         sliderModelList.add(new SliderModel(R.drawable.ic_menu_gallery,"#077AE4"));
 
-        sliderModelList.add(new SliderModel(R.drawable.home,"#077AE4"));
-        sliderModelList.add(new SliderModel(R.drawable.mail_green,"#077AE4"));
-        sliderModelList.add(new SliderModel(R.drawable.mail_red,"#077AE4"));
+        sliderModelList.add(new SliderModel(R.drawable.phone,"#077AE4"));
+        sliderModelList.add(new SliderModel(R.drawable.horizontal_banner_ad,"#077AE4"));
+        sliderModelList.add(new SliderModel(R.drawable.banner_add,"#077AE4"));
 
 
         /*------------------------horizontal product Layout-------------------------------------------*/
 
         List<HorizontalProductScrollModal> horizontalProductScrollModalList = new ArrayList<>();
-        horizontalProductScrollModalList.add(new HorizontalProductScrollModal(R.drawable.nav_signout,"Redmi","625 processor","Rs.6999/-"));
-        horizontalProductScrollModalList.add(new HorizontalProductScrollModal(R.drawable.nav_cart,"Redmi","625 processor","Rs.6999/-"));
-        horizontalProductScrollModalList.add(new HorizontalProductScrollModal(R.drawable.home,"Redmi","625 processor","Rs.6999/-"));
-        horizontalProductScrollModalList.add(new HorizontalProductScrollModal(R.drawable.mail_green,"Redmi","625 processor","Rs.6999/-"));
-        horizontalProductScrollModalList.add(new HorizontalProductScrollModal(R.drawable.ic_menu_gallery,"Redmi","625 processor","Rs.6999/-"));
-        horizontalProductScrollModalList.add(new HorizontalProductScrollModal(R.drawable.add_circle_outline,"Redmi","625 processor","Rs.6999/-"));
-        horizontalProductScrollModalList.add(new HorizontalProductScrollModal(R.drawable.error_icon,"Redmi","625 processor","Rs.6999/-"));
-        horizontalProductScrollModalList.add(new HorizontalProductScrollModal(R.drawable.close_button,"Redmi","625 processor","Rs.6999/-"));
-        horizontalProductScrollModalList.add(new HorizontalProductScrollModal(R.drawable.ic_menu_camera,"Redmi","625 processor","Rs.6999/-"));
+        horizontalProductScrollModalList.add(new HorizontalProductScrollModal(R.drawable.phone,"Redmi","625 processor","Rs.6999/-"));
+        horizontalProductScrollModalList.add(new HorizontalProductScrollModal(R.drawable.phone,"Redmi","625 processor","Rs.6999/-"));
+        horizontalProductScrollModalList.add(new HorizontalProductScrollModal(R.drawable.phone,"Redmi","625 processor","Rs.6999/-"));
+        horizontalProductScrollModalList.add(new HorizontalProductScrollModal(R.drawable.phone,"Redmi","625 processor","Rs.6999/-"));
+        horizontalProductScrollModalList.add(new HorizontalProductScrollModal(R.drawable.phone,"Redmi","625 processor","Rs.6999/-"));
+        horizontalProductScrollModalList.add(new HorizontalProductScrollModal(R.drawable.phone,"Redmi","625 processor","Rs.6999/-"));
+        horizontalProductScrollModalList.add(new HorizontalProductScrollModal(R.drawable.phone,"Redmi","625 processor","Rs.6999/-"));
+        horizontalProductScrollModalList.add(new HorizontalProductScrollModal(R.drawable.phone,"Redmi","625 processor","Rs.6999/-"));
+        horizontalProductScrollModalList.add(new HorizontalProductScrollModal(R.drawable.phone,"Redmi","625 processor","Rs.6999/-"));
 
 
         /*-------------------------------------Main Recycler view--------------------------------------*/
@@ -105,15 +105,13 @@ public class HomeFragment extends Fragment {
         List<HomePageModel> homePageModelList = new ArrayList<>();
 
         homePageModelList.add(new HomePageModel(0,sliderModelList));
-        homePageModelList.add(new HomePageModel(1,R.drawable.home,"#000000"));
+        homePageModelList.add(new HomePageModel(1,R.drawable.banner_add,"#000000"));
         homePageModelList.add(new HomePageModel(2,"Deals of the day",horizontalProductScrollModalList));
         homePageModelList.add(new HomePageModel(3,"Deals of the day",horizontalProductScrollModalList));
-        homePageModelList.add(new HomePageModel(1,R.drawable.home,"#ff0000"));
+        homePageModelList.add(new HomePageModel(1,R.drawable.horizontal_banner_ad,"#ff0000"));
         homePageModelList.add(new HomePageModel(3,"Deals of the day",horizontalProductScrollModalList));
         homePageModelList.add(new HomePageModel(2,"Deals of the day",horizontalProductScrollModalList));
-        homePageModelList.add(new HomePageModel(1,R.drawable.home,"#ff0000"));
-        homePageModelList.add(new HomePageModel(0,sliderModelList));
-
+        homePageModelList.add(new HomePageModel(1,R.drawable.banner_add,"#ff0000"));
 
 
         HomePageAdapter adapter = new HomePageAdapter(homePageModelList);
