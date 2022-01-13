@@ -22,4 +22,9 @@
         android:name="com.example.eshopie.ui.slideshow.SlideshowFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_slideshow" />
+    <fragment
+        android:id="@+id/myCartFragment"
+        android:name="com.example.eshopie.ui.cart.MyCartFragment"
+        android:label="fragment_my_cart"
+        tools:layout="@layout/fragment_my_cart" />
 </navigation>

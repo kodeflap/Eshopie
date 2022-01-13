@@ -5,6 +5,8 @@
     android:id="@+id/cart_product_quantitiy"
     android:background="@color/white"
     android:elevation="6dp"
+    android:layout_marginTop="4dp"
+    android:layout_marginBottom="4dp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -34,6 +36,7 @@
         android:id="@+id/free_coupon_icon"
         android:layout_width="15dp"
         android:layout_height="15dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_free_coupon"
         app:layout_constraintStart_toStartOf="@+id/cart_products_title"
         app:layout_constraintTop_toBottomOf="@+id/cart_products_title"
         app:srcCompat="@drawable/coupon" />
@@ -66,6 +69,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
+        android:textSize="12sp"
         android:text="Rs.10000/-"
         app:layout_constraintBottom_toBottomOf="@+id/cart_product_price"
         app:layout_constraintEnd_toStartOf="@+id/cart_product_price" />
