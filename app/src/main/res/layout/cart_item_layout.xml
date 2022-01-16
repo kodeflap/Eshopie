@@ -2,13 +2,12 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/cart_product_quantitiy"
-    android:background="@color/white"
-    android:elevation="6dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:layout_marginTop="4dp"
     android:layout_marginBottom="4dp"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:background="@color/white"
+    android:elevation="6dp">
 
     <ImageView
         android:id="@+id/cart_product_image"
@@ -69,8 +68,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
-        android:textSize="12sp"
         android:text="Rs.10000/-"
+        android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="@+id/cart_product_price"
         app:layout_constraintEnd_toStartOf="@+id/cart_product_price" />
 
@@ -107,17 +106,17 @@
         app:layout_constraintTop_toBottomOf="@+id/cart_offers_applied" />
 
     <TextView
-        android:id="@+id/textView13"
+        android:id="@+id/cart_product_quantitiy"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:text="Qty: "
-        android:textColor="@color/black"
         android:background="@drawable/border_bg"
         android:backgroundTint="@color/black"
-        android:padding="3dp"
         android:drawableEnd="@drawable/arrow_down"
         android:drawablePadding="8dp"
+        android:padding="3dp"
+        android:text="Qty: "
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="@+id/cart_coupons_applied"
         app:layout_constraintStart_toEndOf="@+id/cart_product_image"
         app:layout_constraintTop_toBottomOf="@+id/cart_cutted_price" />
@@ -161,9 +160,9 @@
         android:layout_width="0dp"
         android:layout_height="56dp"
         android:layout_marginTop="8dp"
-        android:orientation="horizontal"
-        android:gravity="center"
         android:background="@color/white"
+        android:gravity="center"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -172,10 +171,10 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="Remove"
-            android:gravity="center"
+            android:drawableEnd="@drawable/delete"
             android:drawablePadding="4dp"
-            android:drawableEnd="@drawable/delete"/>
+            android:gravity="center"
+            android:text="Remove" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

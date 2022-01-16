@@ -2,6 +2,9 @@ package com.example.eshopie.model;
 
 public class CategoryModel {
 
+    private String CategoryIcon;
+    private String categoryName;
+
     public String getCategoryIcon() {
         return CategoryIcon;
     }
@@ -23,6 +26,4 @@ public class CategoryModel {
         this.categoryName = categoryName;
     }
 
-    private String CategoryIcon;
-    private String categoryName;
 }

@@ -101,6 +101,8 @@ public class ProductDetails extends AppCompatActivity {
 
         /*------------rating--------------*/
         rateNowContainer = findViewById(R.id.rating_bar_container);
+        //todo: rating bar code
+
     }
 
     @Override

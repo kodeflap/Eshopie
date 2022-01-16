@@ -4,8 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/white"
     android:elevation="6dp"
-    android:layout_marginTop="8dp"
-    android:layout_marginBottom="8dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.product.ProductDetails">
@@ -59,9 +57,9 @@
         android:id="@+id/linearLayout4"
         android:layout_width="0dp"
         android:layout_height="56dp"
-        android:orientation="horizontal"
         android:background="@color/white"
         android:elevation="8dp"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -70,21 +68,22 @@
             android:id="@+id/add_to_cart_btn"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:gravity="center"
+            android:layout_weight="1"
             android:background="@color/white"
-            android:layout_weight="1">
+            android:gravity="center"
+            android:orientation="horizontal">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="Add to Cart"
                 android:drawableEnd="@drawable/nav_cart"
-                android:padding="8dp"
-                android:gravity="center"
-                android:textSize="16sp"
-                android:textStyle="bold"
                 android:drawableTint="@color/grey"
-                android:textColor="@color/grey"/>
+                android:gravity="center"
+                android:padding="8dp"
+                android:text="Add to Cart"
+                android:textColor="@color/grey"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
         </LinearLayout>
 
@@ -92,11 +91,12 @@
             android:id="@+id/buy_now_btn"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Buy Now"
+            android:layout_marginEnd="8dp"
+            android:layout_weight="1"
             android:stateListAnimator="@null"
+            android:text="Buy Now"
             android:textSize="16sp"
-            android:textStyle="bold"
-            android:layout_weight="1"/>
+            android:textStyle="bold" />
 
     </LinearLayout>
 

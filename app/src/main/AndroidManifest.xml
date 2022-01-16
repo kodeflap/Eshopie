@@ -12,9 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Eshopie">
         <activity
+            android:name=".ui.orders.OrderDetailsActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.category.CategoryActivity"
             android:exported="false" />
-        <activity android:name=".ui.product.ProductDetails"/>
+        <activity android:name=".ui.product.ProductDetails" />
         <activity
             android:name=".HomeActivity"
             android:exported="false"
