@@ -5,16 +5,19 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.RatingBar;
 
 import com.example.eshopie.R;
+import com.example.eshopie.ui.delivery.DeliveryActivity;
 import com.example.eshopie.ui.product.adapter.ProductDetailsAdapter;
 import com.example.eshopie.ui.product.adapter.ProductImageAdapter;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -34,6 +37,9 @@ public class ProductDetails extends AppCompatActivity {
     /*-----------------------------------rating layout-------------------------*/
     private RatingBar rateNowContainer;
 
+    /*---------------------buy now-----------------------------------------*/
+    private Button buyNowBtn;
+
     private FloatingActionButton addToWishlistButton;
     private static boolean ALREADY_ADDED_TO_WISHLIST = false;
 
@@ -52,6 +58,8 @@ public class ProductDetails extends AppCompatActivity {
 
         productDetailsViewPager = findViewById(R.id.product_details_viewpager);
         productDetailsTabLayout = findViewById(R.id.product_details_tablayout);
+
+        buyNowBtn = findViewById(R.id.buy_now_btn);
 
         List<Integer> productImages = new ArrayList<>();
         productImages.add(R.drawable.home);
@@ -102,6 +110,15 @@ public class ProductDetails extends AppCompatActivity {
         /*------------rating--------------*/
         rateNowContainer = findViewById(R.id.rating_bar_container);
         //todo: rating bar code
+
+        /*-----------------------------buy now-------------------*/
+        buyNowBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent buyNowIntent = new Intent(ProductDetails.this,DeliveryActivity.class);
+                startActivity(buyNowIntent);
+            }
+        });
 
     }
 

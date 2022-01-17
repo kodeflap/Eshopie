@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Eshopie">
         <activity
+            android:name=".ui.add_address.AddAddressActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.delivery.DeliveryActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.orders.OrderDetailsActivity"
             android:exported="false" />
         <activity

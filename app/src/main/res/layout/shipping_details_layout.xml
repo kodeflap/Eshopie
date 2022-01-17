@@ -2,12 +2,12 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/white"
-    android:elevation="6dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:layout_marginTop="4dp"
     android:layout_marginBottom="4dp"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:background="@color/white"
+    android:elevation="6dp">
 
     <TextView
         android:id="@+id/textView6"
@@ -37,9 +37,9 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:text="Abc"
+        android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="bold"
-        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/divider9" />
 
@@ -64,7 +64,21 @@
         android:text="Pincode"
         android:textColor="@color/black"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/change_or_add_address_btn"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/shipping_address" />
+
+    <Button
+        android:id="@+id/change_or_add_address_btn"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
+        android:text="Change or add new address"
+        android:textAllCaps="false"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

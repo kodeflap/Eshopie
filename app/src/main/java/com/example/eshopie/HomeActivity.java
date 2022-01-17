@@ -108,7 +108,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             return true;
         }
         //  drawer.closeDrawer(GravityCompat.START);
-        return true;
+        return super.onOptionsItemSelected(item);
     }
 
     private void destinationFragments(String title, Fragment fragment, int fragmentNo) {
