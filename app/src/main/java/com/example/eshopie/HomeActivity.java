@@ -22,7 +22,7 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.example.eshopie.databinding.ActivityHomeBinding;
-import com.example.eshopie.ui.cart.MyCartFragment;
+import com.example.eshopie.ui.cart.CartFragment;
 import com.example.eshopie.ui.home.HomeFragment;
 import com.google.android.material.navigation.NavigationView;
 
@@ -104,7 +104,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         } else if (id == R.id.home_notification) {
             return true;
         } else if (id == R.id.home_cart) {
-            destinationFragments("Cart", new MyCartFragment(), CART_FRAGMENT);
+            destinationFragments("Cart", new CartFragment(), CART_FRAGMENT);
             return true;
         }
         //  drawer.closeDrawer(GravityCompat.START);

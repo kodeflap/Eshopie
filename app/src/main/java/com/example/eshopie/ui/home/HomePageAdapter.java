@@ -1,5 +1,6 @@
 package com.example.eshopie.ui.home;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Handler;
 import android.view.LayoutInflater;
@@ -24,6 +25,7 @@ import com.example.eshopie.model.SliderModel;
 import com.example.eshopie.ui.home.gridProduct.GridProductLayoutAdapter;
 import com.example.eshopie.ui.home.horizontalProductScroll.HorizontalProductScrollAdapter;
 import com.example.eshopie.ui.home.slider.SliderAdapter;
+import com.example.eshopie.ui.viewall.ViewAllActivity;
 
 import java.util.List;
 import java.util.Timer;
@@ -239,6 +241,14 @@ public class HomePageAdapter extends RecyclerView.Adapter {
 
             if(horizontalProductScrollModalList.size() > 8) {
                 horizontalLayoutViewAllButton.setVisibility(View.VISIBLE);
+                horizontalLayoutViewAllButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent horizontalViewAllIntent = new Intent(itemView.getContext(), ViewAllActivity.class);
+                        horizontalViewAllIntent.putExtra("layout_code",0);
+                        itemView.getContext().startActivity(horizontalViewAllIntent);
+                    }
+                });
             }
             else {
                 horizontalLayoutViewAllButton.setVisibility(View.INVISIBLE);
@@ -258,19 +268,28 @@ public class HomePageAdapter extends RecyclerView.Adapter {
     /*----------------------------Grid product----------------------------------*/
     private class GridProductViewHolder extends RecyclerView.ViewHolder {
         private TextView gridLayoutTitle;
-        private Button gridLayoutViewAll;
+        private Button gridLayoutViewAllBtn;
         private GridView gridView;
 
         public GridProductViewHolder(View itemView) {
             super(itemView);
             gridLayoutTitle = itemView.findViewById(R.id.grid_product_layout_title);
-            gridLayoutViewAll = itemView.findViewById(R.id.grid_product_layout_view_all);
+            gridLayoutViewAllBtn = itemView.findViewById(R.id.grid_product_layout_view_all);
             gridView = itemView.findViewById(R.id.grid_product_layout_gridview);
         }
 
         private void setGridProductLayout(List<HorizontalProductScrollModal> horizontalProductScrollModalList,String title) {
             gridLayoutTitle.setText(title);
             gridView.setAdapter(new GridProductLayoutAdapter(horizontalProductScrollModalList));
+            gridLayoutViewAllBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent gridViewAllIntent = new Intent(itemView.getContext(),ViewAllActivity.class);
+                    gridViewAllIntent.putExtra("layout_code",1);
+                    itemView.getContext().startActivity(gridViewAllIntent);
+                }
+            });
+
         }
     }
 }

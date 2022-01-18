@@ -6,6 +6,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -13,7 +14,7 @@ import android.widget.Button;
 
 import com.example.eshopie.R;
 import com.example.eshopie.model.CartItemModel;
-import com.example.eshopie.ui.cart.MyCartFragment;
+import com.example.eshopie.ui.address.UserAddressActivity;
 import com.example.eshopie.ui.cart.adapter.CartAdapter;
 
 import java.util.ArrayList;
@@ -23,6 +24,8 @@ public class DeliveryActivity extends AppCompatActivity {
 
     private RecyclerView deliveryRecyclerView;
     private Button changeOrAddAddressBtn;
+
+    public static final int SELECT_ADDRESS = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +57,14 @@ public class DeliveryActivity extends AppCompatActivity {
         cartAdapter.notifyDataSetChanged();
 
         changeOrAddAddressBtn.setVisibility(View.VISIBLE);
+        changeOrAddAddressBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent addressIntent = new Intent(DeliveryActivity.this, UserAddressActivity.class);
+                addressIntent.putExtra("MODE",SELECT_ADDRESS);
+                startActivity(addressIntent);
+            }
+        });
     }
 
     @Override

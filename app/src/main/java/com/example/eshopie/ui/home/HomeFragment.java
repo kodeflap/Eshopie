@@ -72,9 +72,9 @@ public class HomeFragment extends Fragment {
         sliderModelList.add(new SliderModel(R.drawable.horizontal_banner_ad,"#077AE4"));
 
         sliderModelList.add(new SliderModel(R.drawable.mail_red,"#077AE4"));
-        sliderModelList.add(new SliderModel(R.drawable.ic_menu_slideshow,"#077AE4"));
-        sliderModelList.add(new SliderModel(R.drawable.ic_menu_camera,"#077AE4"));
-        sliderModelList.add(new SliderModel(R.drawable.ic_menu_gallery,"#077AE4"));
+        sliderModelList.add(new SliderModel(R.drawable.arrow_down,"#077AE4"));
+        sliderModelList.add(new SliderModel(R.drawable.profile,"#077AE4"));
+        sliderModelList.add(new SliderModel(R.drawable.ic_logo,"#077AE4"));
 
         sliderModelList.add(new SliderModel(R.drawable.phone,"#077AE4"));
         sliderModelList.add(new SliderModel(R.drawable.horizontal_banner_ad,"#077AE4"));

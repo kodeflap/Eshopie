@@ -14,15 +14,15 @@ import android.widget.Button;
 
 import com.example.eshopie.R;
 import com.example.eshopie.model.CartItemModel;
+import com.example.eshopie.ui.address.AddAddressActivity;
 import com.example.eshopie.ui.cart.adapter.CartAdapter;
-import com.example.eshopie.ui.delivery.DeliveryActivity;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MyCartFragment extends Fragment {
+public class CartFragment extends Fragment {
 
-    public MyCartFragment() {
+    public CartFragment() {
         // Required empty public constructor
     }
 
@@ -54,7 +54,7 @@ public class MyCartFragment extends Fragment {
         cartContinueBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent deliveryIntent = new Intent(getContext(), DeliveryActivity.class);
+                Intent deliveryIntent = new Intent(getContext(), AddAddressActivity.class);
                 getContext().startActivity(deliveryIntent);
             }
         });

@@ -47,8 +47,8 @@ public class CategoryActivity extends AppCompatActivity {
         sliderModelList.add(new SliderModel(R.drawable.mail_green,"#077AE4"));
 
         sliderModelList.add(new SliderModel(R.drawable.banner_add,"#077AE4"));
-        sliderModelList.add(new SliderModel(R.drawable.ic_menu_slideshow,"#077AE4"));
-        sliderModelList.add(new SliderModel(R.drawable.ic_menu_camera,"#077AE4"));
+        sliderModelList.add(new SliderModel(R.drawable.check,"#077AE4"));
+        sliderModelList.add(new SliderModel(R.drawable.add_circle_outline,"#077AE4"));
         sliderModelList.add(new SliderModel(R.drawable.horizontal_banner_ad,"#077AE4"));
 
         sliderModelList.add(new SliderModel(R.drawable.home,"#077AE4"));

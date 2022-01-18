@@ -66,8 +66,8 @@ public class ProductDetails extends AppCompatActivity {
         productImages.add(R.drawable.profile);
         productImages.add(R.drawable.add_circle_outline);
         productImages.add(R.drawable.ic_baseline_shopping_basket_24);
-        productImages.add(R.drawable.ic_menu_gallery);
-        productImages.add(R.drawable.ic_menu_slideshow);
+        productImages.add(R.drawable.phone);
+        productImages.add(R.drawable.delete);
 
         ProductImageAdapter productImageAdapter = new ProductImageAdapter(productImages);
         productImageViewPager.setAdapter(productImageAdapter);
