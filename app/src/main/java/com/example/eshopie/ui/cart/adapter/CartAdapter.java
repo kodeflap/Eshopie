@@ -140,7 +140,7 @@ public class CartAdapter extends RecyclerView.Adapter {
                 public void onClick(View v) {
                     Dialog quantityDialog = new Dialog(itemView.getContext());
                     quantityDialog.setContentView(R.layout.quantity_layout);
-                    quantityDialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.MATCH_PARENT);
+                    quantityDialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
                     quantityDialog.setCancelable(false);
                     EditText quantityNo = quantityDialog.findViewById(R.id.quantity_count);
                     Button quantityCancel = quantityDialog.findViewById(R.id.qty_cancel_btn);

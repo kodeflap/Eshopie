@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <ImageView
         android:id="@+id/imageView7"
@@ -34,28 +34,37 @@
         android:id="@+id/linearLayout8"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:elevation="6dp"
         android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView14">
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/qty_cancel_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="2dp"
             android:layout_weight="1"
             android:background="@color/transparent"
+            android:backgroundTint="@color/light_grey"
             android:stateListAnimator="@null"
             android:text="Sign In"
             android:textAllCaps="false" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/qty_ok_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
             android:layout_weight="1"
             android:background="@color/transparent"
+            android:backgroundTint="@color/light_grey"
             android:stateListAnimator="@null"
             android:text="Sign Up"
             android:textAllCaps="false" />
@@ -65,7 +74,7 @@
         android:id="@+id/divider13"
         android:layout_width="0dp"
         android:layout_height="1dp"
-        android:background="@color/transparent"
+        android:background="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/linearLayout8" />
@@ -74,7 +83,7 @@
         android:id="@+id/divider14"
         android:layout_width="1dp"
         android:layout_height="0dp"
-        android:background="@color/transparent"
+        android:background="@color/white"
         app:layout_constraintBottom_toBottomOf="@+id/linearLayout8"
         app:layout_constraintEnd_toEndOf="@+id/linearLayout8"
         app:layout_constraintStart_toStartOf="@+id/linearLayout8"

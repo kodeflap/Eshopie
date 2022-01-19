@@ -132,7 +132,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             signInDialog.setContentView(R.layout.sign_in_dialog);
             signInDialog.setCancelable(true);
 
-            signInDialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.MATCH_PARENT);
+            signInDialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
             Button signInDialogBtn = signInDialog.findViewById(R.id.qty_cancel_btn);
             Button signUpDialogBtn = signInDialog.findViewById(R.id.qty_ok_btn);
 
