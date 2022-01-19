@@ -67,10 +67,10 @@ public class HorizontalProductScrollAdapter extends RecyclerView.Adapter<Horizon
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            productImage = itemView.findViewById(R.id.horizontal_scroll_product_image);
-            productTitle = itemView.findViewById(R.id.horizonyal_scroll_product_title);
-            productDescription = itemView.findViewById(R.id.horizontal_scroll_product_description);
-            productPrice = itemView.findViewById(R.id.horizontal_scroll_product_price);
+            productImage = itemView.findViewById(R.id.hs_product_image);
+            productTitle = itemView.findViewById(R.id.hs_product_title);
+            productDescription = itemView.findViewById(R.id.hs_product_description);
+            productPrice = itemView.findViewById(R.id.hs__product_price);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

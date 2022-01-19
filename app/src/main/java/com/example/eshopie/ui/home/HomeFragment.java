@@ -67,19 +67,12 @@ public class HomeFragment extends Fragment {
 
         List<SliderModel> sliderModelList = new ArrayList<SliderModel>();
 
-        sliderModelList.add(new SliderModel(R.drawable.banner_add,"#077AE4"));
-        sliderModelList.add(new SliderModel(R.drawable.phone,"#077AE4"));
         sliderModelList.add(new SliderModel(R.drawable.horizontal_banner_ad,"#077AE4"));
-
         sliderModelList.add(new SliderModel(R.drawable.mail_red,"#077AE4"));
         sliderModelList.add(new SliderModel(R.drawable.arrow_down,"#077AE4"));
         sliderModelList.add(new SliderModel(R.drawable.profile,"#077AE4"));
         sliderModelList.add(new SliderModel(R.drawable.ic_logo,"#077AE4"));
-
         sliderModelList.add(new SliderModel(R.drawable.phone,"#077AE4"));
-        sliderModelList.add(new SliderModel(R.drawable.horizontal_banner_ad,"#077AE4"));
-        sliderModelList.add(new SliderModel(R.drawable.banner_add,"#077AE4"));
-
 
         /*------------------------horizontal product Layout-------------------------------------------*/
 
@@ -105,6 +98,13 @@ public class HomeFragment extends Fragment {
         List<HomePageModel> homePageModelList = new ArrayList<>();
 
         homePageModelList.add(new HomePageModel(0,sliderModelList));
+        homePageModelList.add(new HomePageModel(1,R.drawable.banner_add,"#000000"));
+        homePageModelList.add(new HomePageModel(2,"Deals of the day",horizontalProductScrollModalList));
+        homePageModelList.add(new HomePageModel(3,"Deals of the day",horizontalProductScrollModalList));
+        homePageModelList.add(new HomePageModel(1,R.drawable.horizontal_banner_ad,"#ff0000"));
+        homePageModelList.add(new HomePageModel(3,"Deals of the day",horizontalProductScrollModalList));
+        homePageModelList.add(new HomePageModel(2,"Deals of the day",horizontalProductScrollModalList));
+        homePageModelList.add(new HomePageModel(1,R.drawable.banner_add,"#ff0000"));
         homePageModelList.add(new HomePageModel(1,R.drawable.banner_add,"#000000"));
         homePageModelList.add(new HomePageModel(2,"Deals of the day",horizontalProductScrollModalList));
         homePageModelList.add(new HomePageModel(3,"Deals of the day",horizontalProductScrollModalList));

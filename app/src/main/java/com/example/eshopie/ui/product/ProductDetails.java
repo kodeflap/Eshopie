@@ -1,5 +1,7 @@
 package com.example.eshopie.ui.product;
 
+import static com.example.eshopie.HomeActivity.showCart;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -16,6 +18,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.RatingBar;
 
+import com.example.eshopie.HomeActivity;
 import com.example.eshopie.R;
 import com.example.eshopie.ui.delivery.DeliveryActivity;
 import com.example.eshopie.ui.product.adapter.ProductDetailsAdapter;
@@ -137,6 +140,9 @@ public class ProductDetails extends AppCompatActivity {
         } else if (id == R.id.search) {
             return true;
         } else if (id == R.id.cart) {
+            Intent cartIntent = new Intent(ProductDetails.this, HomeActivity.class);
+            showCart = true;
+            startActivity(cartIntent);
             return true;
         }
         return super.onOptionsItemSelected(item);

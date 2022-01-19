@@ -54,10 +54,10 @@ public class GridProductLayoutAdapter extends BaseAdapter {
                 }
             });
 
-            ImageView productImage = view.findViewById(R.id.horizontal_scroll_product_image);
-            TextView productTitle = view.findViewById(R.id.horizonyal_scroll_product_title);
-            TextView productDescription = view.findViewById(R.id.horizontal_scroll_product_description);
-            TextView productPrice = view.findViewById(R.id.horizonyal_scroll_product_title);
+            ImageView productImage = view.findViewById(R.id.hs_product_image);
+            TextView productTitle = view.findViewById(R.id.hs_product_title);
+            TextView productDescription = view.findViewById(R.id.hs_product_description);
+            TextView productPrice = view.findViewById(R.id.hs_product_title);
 
             productImage.setImageResource(horizontalProductScrollModalList.get(position).getProductImage());
             productTitle.setText(horizontalProductScrollModalList.get(position).getProductTitle());

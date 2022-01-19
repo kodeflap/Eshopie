@@ -1,8 +1,11 @@
 package com.example.eshopie.ui.cart.adapter;
 
+import android.app.Dialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -132,6 +135,34 @@ public class CartAdapter extends RecyclerView.Adapter {
             } else {
                 offersApplied.setVisibility(View.INVISIBLE);
             }
+            productQuantity.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Dialog quantityDialog = new Dialog(itemView.getContext());
+                    quantityDialog.setContentView(R.layout.quantity_layout);
+                    quantityDialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.MATCH_PARENT);
+                    quantityDialog.setCancelable(false);
+                    EditText quantityNo = quantityDialog.findViewById(R.id.quantity_count);
+                    Button quantityCancel = quantityDialog.findViewById(R.id.qty_cancel_btn);
+                    Button quantityOk = quantityDialog.findViewById(R.id.qty_ok_btn);
+
+                    quantityCancel.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            quantityDialog.dismiss();
+                        }
+                    });
+
+                    quantityOk.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            productQuantity.setText("Qty : " + quantityNo.getText());
+                            quantityDialog.dismiss();
+                        }
+                    });
+                    quantityDialog.show();
+                }
+            });
         }
     }
 
