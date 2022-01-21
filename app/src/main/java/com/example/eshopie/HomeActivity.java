@@ -34,7 +34,7 @@ import com.example.eshopie.ui.home.HomeFragment;
 import com.example.eshopie.ui.register.RegisterActivity;
 import com.google.android.material.navigation.NavigationView;
 
-public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class HomeActivity extends AppCompatActivity{
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityHomeBinding binding;
@@ -62,10 +62,10 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         window = getWindow();
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
 
-        actionBarLogo = binding.appBarHome.actionbarLogo;
+       // actionBarLogo = binding.appBarHome.actionbarLogo;
         drawer = binding.drawerLayout;
         navigationView = binding.navView;
-        actionBarLogo = findViewById(R.id.actionbar_logo);
+       // actionBarLogo = findViewById(R.id.actionbar_logo);
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
@@ -128,6 +128,8 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         } else if (id == R.id.home_notification) {
             return true;
         } else if (id == R.id.home_cart) {
+
+            /*--------------------cart dialog-----------------------*/
             final Dialog signInDialog = new Dialog(HomeActivity.this);
             signInDialog.setContentView(R.layout.sign_in_dialog);
             signInDialog.setCancelable(true);
@@ -151,7 +153,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 @Override
                 public void onClick(View v) {
                     signInDialog.dismiss();
-                    setSignUpFragment = true;
+                    setSignUpFragment= true;
                     startActivity(registerIntent);
                 }
             });
@@ -202,9 +204,4 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
     }
 
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-
-        return false;
-    }
 }

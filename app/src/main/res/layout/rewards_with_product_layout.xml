@@ -2,12 +2,14 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@drawable/reward_gradient_bg"
-    android:layout_marginTop="8dp"
-    android:layout_marginBottom="8dp"
-    android:elevation="6dp"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_marginStart="4dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginEnd="4dp"
+    android:layout_marginBottom="8dp"
+    android:background="@drawable/reward_gradient_bg"
+    android:elevation="6dp">
 
     <ImageView
         android:id="@+id/reward_icon"
@@ -38,8 +40,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
         android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         android:text="Loreum ipsum dolor sit amet,eu diam scripta"
         android:textColor="@color/white"

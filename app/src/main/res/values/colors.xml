@@ -3,12 +3,13 @@
     <color name="orange">#FF9800</color>
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>
-    <color name="pink">#A320C0</color>
-    <color name="grey">#959696</color>
+    <color name="pink">#CE0CD5</color>
+    <color name="grey">#B9BCBC</color>
     <color name="light_grey">#CCD6D6</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="red">#D6190B</color>
+    <color name="yellow">#FFC107</color>
     <color name="green">#35DF10</color>
-    <color name="transparent">#8BFFFFFF</color>
+    <color name="transparent">#2DFFFFFF</color>
 </resources>

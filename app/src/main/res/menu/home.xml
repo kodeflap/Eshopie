@@ -5,6 +5,7 @@
         android:id="@+id/home_search"
         android:orderInCategory="100"
         android:icon="@drawable/search"
+        android:iconTint="@color/purple_500"
         app:showAsAction="always"
         android:title="@string/search"/>
     <item
@@ -12,12 +13,14 @@
         android:orderInCategory="100"
         android:icon="@drawable/notification"
         app:showAsAction="always"
+        android:iconTint="@color/purple_500"
         android:title="@string/notification" />
     <item
         android:id="@+id/home_cart"
         android:orderInCategory="100"
         android:icon="@drawable/cart"
         app:showAsAction="always"
+        android:iconTint="@color/purple_500"
         android:title="@string/cart"/>
 
 </menu>

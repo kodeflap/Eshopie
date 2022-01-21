@@ -10,21 +10,30 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.eshopie.R;
 import com.example.eshopie.model.RewardModel;
+import com.example.eshopie.ui.product.ProductDetails;
 
 import java.util.List;
 
 public class RewardAdapter extends RecyclerView.Adapter<RewardAdapter.ViewHolder> {
 
     private List<RewardModel> rewardModelList;
+    private Boolean useMiniLayout = false;
 
-    public RewardAdapter(List<RewardModel> rewardModelList) {
+    public RewardAdapter(List<RewardModel> rewardModelList,Boolean useMiniLayout) {
         this.rewardModelList = rewardModelList;
+        this.useMiniLayout = useMiniLayout;
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-       View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.rewards_item_layout,parent,false);
+        View view;
+        if (useMiniLayout) {
+            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.mini_rewards_layout,parent,false);
+        }
+        else {
+            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.rewards_item_layout,parent,false);
+        }
        return new ViewHolder(view);
     }
 
@@ -52,12 +61,25 @@ public class RewardAdapter extends RecyclerView.Adapter<RewardAdapter.ViewHolder
             super(itemView);
             rewardTitle = itemView.findViewById(R.id.reward_item_title);
             rewardExpiryDate = itemView.findViewById(R.id.reward_item_validity);
-            rewardBody = itemView.findViewById(R.id.reward_item_body);
+            rewardBody = itemView.findViewById(R.id.mr_body);
         }
         private void setData(String title, String date, String body) {
             rewardTitle.setText(title);
             rewardExpiryDate.setText(date);
             rewardBody.setText(body);
+
+            if (useMiniLayout) {
+                itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        ProductDetails.couponTitle.setText(title);
+                        ProductDetails.couponExpDate.setText(date);
+                        ProductDetails.couponBody.setText(body);
+
+                        ProductDetails.showDialogRecyclerView();
+                    }
+                });
+            }
         }
     }
 }

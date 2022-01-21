@@ -41,7 +41,7 @@ public class RewardsFragment extends Fragment {
         rewardModelList.add(new RewardModel("Cashback","Till 2nd feb 2022","get 50 % off on purchase above Rs.500/-"));
         rewardModelList.add(new RewardModel("discount","Till 2nd feb 2022","get 50 % off on purchase above Rs.500/-"));
 
-        RewardAdapter rewardAdapter = new RewardAdapter(rewardModelList);
+        RewardAdapter rewardAdapter = new RewardAdapter(rewardModelList,false);
         rewardRecyclerView.setAdapter(rewardAdapter);
         rewardAdapter.notifyDataSetChanged();
 
