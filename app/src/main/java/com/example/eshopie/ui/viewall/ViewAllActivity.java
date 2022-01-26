@@ -64,22 +64,6 @@ public class ViewAllActivity extends AppCompatActivity {
             viewAllGridView.setVisibility(View.VISIBLE);
 
             List<HorizontalProductScrollModal> horizontalProductScrollModalList = new ArrayList<>();
-            horizontalProductScrollModalList.add(new HorizontalProductScrollModal(R.drawable.phone, "Redmi", "625 processor", "Rs.6999/-"));
-            horizontalProductScrollModalList.add(new HorizontalProductScrollModal(R.drawable.phone, "Redmi", "625 processor", "Rs.6999/-"));
-            horizontalProductScrollModalList.add(new HorizontalProductScrollModal(R.drawable.phone, "Redmi", "625 processor", "Rs.6999/-"));
-            horizontalProductScrollModalList.add(new HorizontalProductScrollModal(R.drawable.phone, "Redmi", "625 processor", "Rs.6999/-"));
-            horizontalProductScrollModalList.add(new HorizontalProductScrollModal(R.drawable.phone, "Redmi", "625 processor", "Rs.6999/-"));
-            horizontalProductScrollModalList.add(new HorizontalProductScrollModal(R.drawable.phone, "Redmi", "625 processor", "Rs.6999/-"));
-            horizontalProductScrollModalList.add(new HorizontalProductScrollModal(R.drawable.phone, "Redmi", "625 processor", "Rs.6999/-"));
-            horizontalProductScrollModalList.add(new HorizontalProductScrollModal(R.drawable.phone, "Redmi", "625 processor", "Rs.6999/-"));
-            horizontalProductScrollModalList.add(new HorizontalProductScrollModal(R.drawable.phone, "Redmi", "625 processor", "Rs.6999/-"));
-            horizontalProductScrollModalList.add(new HorizontalProductScrollModal(R.drawable.phone, "Redmi", "625 processor", "Rs.6999/-"));
-            horizontalProductScrollModalList.add(new HorizontalProductScrollModal(R.drawable.phone, "Redmi", "625 processor", "Rs.6999/-"));
-            horizontalProductScrollModalList.add(new HorizontalProductScrollModal(R.drawable.phone, "Redmi", "625 processor", "Rs.6999/-"));
-            horizontalProductScrollModalList.add(new HorizontalProductScrollModal(R.drawable.phone, "Redmi", "625 processor", "Rs.6999/-"));
-            horizontalProductScrollModalList.add(new HorizontalProductScrollModal(R.drawable.phone, "Redmi", "625 processor", "Rs.6999/-"));
-            horizontalProductScrollModalList.add(new HorizontalProductScrollModal(R.drawable.phone, "Redmi", "625 processor", "Rs.6999/-"));
-            horizontalProductScrollModalList.add(new HorizontalProductScrollModal(R.drawable.phone, "Redmi", "625 processor", "Rs.6999/-"));
 
             GridProductLayoutAdapter gridProductLayoutAdapter = new GridProductLayoutAdapter(horizontalProductScrollModalList);
             viewAllGridView.setAdapter(gridProductLayoutAdapter);

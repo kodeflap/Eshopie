@@ -5,16 +5,19 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.eshopie.R;
 import com.example.eshopie.model.CategoryModel;
 
 import java.util.List;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHolder> {
 
@@ -28,7 +31,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.category_item,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.category_item, parent, false);
         return new ViewHolder(view);
     }
 
@@ -36,7 +39,8 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         String icon = categoryModelList.get(position).getCategoryIcon();
         String name = categoryModelList.get(position).getCategoryName();
-        holder.setCategory(name,position);
+        holder.setCategory(name, position);
+        holder.setCategoryIcon(icon);
     }
 
 
@@ -45,9 +49,9 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
         return categoryModelList.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    public class ViewHolder extends RecyclerView.ViewHolder {
 
-        private ImageView categoryIcon;
+        private CircleImageView categoryIcon;
         private TextView categoryName;
 
         public ViewHolder(@NonNull View itemView) {
@@ -57,11 +61,14 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
             categoryName = itemView.findViewById(R.id.category_name);
         }
 
-        private void setCategoryIcon() {
-            //todo:set categoryicons here
+        private void setCategoryIcon(String iconUrl) {
+            if (!iconUrl.equals("null")) {
+                /*----------------icon setting using glide-----------------------------*/
+                Glide.with(itemView.getContext()).load(iconUrl).apply(new RequestOptions().placeholder(R.drawable.home)).into(categoryIcon);
+            }
         }
 
-        private void setCategory(final String name,final int position) {
+        private void setCategory(final String name, final int position) {
             categoryName.setText(name);
 
             itemView.setOnClickListener(new View.OnClickListener() {

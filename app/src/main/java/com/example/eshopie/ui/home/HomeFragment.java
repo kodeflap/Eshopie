@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -19,6 +20,11 @@ import com.example.eshopie.model.HomePageModel;
 import com.example.eshopie.model.HorizontalProductScrollModal;
 import com.example.eshopie.model.SliderModel;
 import com.example.eshopie.ui.category.CategoryAdapter;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,7 +38,10 @@ public class HomeFragment extends Fragment {
     private RecyclerView categoryRecyclerView;
     private RecyclerView homePageRecyclerView;
     private CategoryAdapter categoryAdapter;
+    private HomePageAdapter adapter;
     private FragmentHomeBinding binding;
+    private List<CategoryModel> categoryModelList;
+    private FirebaseFirestore firebaseFirestore;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -47,23 +56,32 @@ public class HomeFragment extends Fragment {
         linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
         categoryRecyclerView.setLayoutManager(linearLayoutManager);
 
-        final List<CategoryModel> categoryModelList = new ArrayList<CategoryModel>();
-        categoryModelList.add(new CategoryModel("link","Home"));
-        categoryModelList.add(new CategoryModel("link","Electronics"));
-        categoryModelList.add(new CategoryModel("link","Appliances"));
-        categoryModelList.add(new CategoryModel("link","Furniture"));
-        categoryModelList.add(new CategoryModel("link","Fashion"));
-        categoryModelList.add(new CategoryModel("link","Toys"));
-        categoryModelList.add(new CategoryModel("link","Sports"));
-        categoryModelList.add(new CategoryModel("link","Wall Arts"));
-        categoryModelList.add(new CategoryModel("link","Books"));
-        categoryModelList.add(new CategoryModel("link","Shoes"));
+        /*-------------------------------firebase firestore section--------------------------------*/
+        firebaseFirestore = FirebaseFirestore.getInstance();
+
+        /*-------------------------- Category horizontal view--------------------------------------*/
+        categoryModelList = new ArrayList<CategoryModel>();
 
         categoryAdapter = new CategoryAdapter(categoryModelList);
         categoryRecyclerView.setAdapter(categoryAdapter);
-        categoryAdapter.notifyDataSetChanged();
 
-        /*----------------------------------- Banner Slider--------------------------------------*/
+        firebaseFirestore.collection("categories").orderBy("index").get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot documentSnapshot : task.getResult()) {
+                                categoryModelList.add(new CategoryModel(documentSnapshot.get("icon").toString(), documentSnapshot.get("categoryName").toString()));
+                            }
+                            categoryAdapter.notifyDataSetChanged();
+                        } else {
+                            String error = task.getException().getMessage();
+                            Toast.makeText(getContext(), error, Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+
+        /*----------------------------------- Banner Slider--------------------------------------
 
         List<SliderModel> sliderModelList = new ArrayList<SliderModel>();
 
@@ -72,9 +90,9 @@ public class HomeFragment extends Fragment {
         sliderModelList.add(new SliderModel(R.drawable.arrow_down,"#077AE4"));
         sliderModelList.add(new SliderModel(R.drawable.profile,"#077AE4"));
         sliderModelList.add(new SliderModel(R.drawable.ic_logo,"#077AE4"));
-        sliderModelList.add(new SliderModel(R.drawable.phone,"#077AE4"));
+        sliderModelList.add(new SliderModel(R.drawable.phone,"#077AE4"));*/
 
-        /*------------------------horizontal product Layout-------------------------------------------*/
+        /*------------------------horizontal product Layout-------------------------------------------
 
         List<HorizontalProductScrollModal> horizontalProductScrollModalList = new ArrayList<>();
         horizontalProductScrollModalList.add(new HorizontalProductScrollModal(R.drawable.phone,"Redmi","625 processor","Rs.6999/-"));
@@ -85,8 +103,7 @@ public class HomeFragment extends Fragment {
         horizontalProductScrollModalList.add(new HorizontalProductScrollModal(R.drawable.phone,"Redmi","625 processor","Rs.6999/-"));
         horizontalProductScrollModalList.add(new HorizontalProductScrollModal(R.drawable.phone,"Redmi","625 processor","Rs.6999/-"));
         horizontalProductScrollModalList.add(new HorizontalProductScrollModal(R.drawable.phone,"Redmi","625 processor","Rs.6999/-"));
-        horizontalProductScrollModalList.add(new HorizontalProductScrollModal(R.drawable.phone,"Redmi","625 processor","Rs.6999/-"));
-
+        horizontalProductScrollModalList.add(new HorizontalProductScrollModal(R.drawable.phone,"Redmi","625 processor","Rs.6999/-"));*/
 
         /*-------------------------------------Main Recycler view--------------------------------------*/
 
@@ -97,26 +114,55 @@ public class HomeFragment extends Fragment {
 
         List<HomePageModel> homePageModelList = new ArrayList<>();
 
-        homePageModelList.add(new HomePageModel(0,sliderModelList));
-        homePageModelList.add(new HomePageModel(1,R.drawable.banner_add,"#000000"));
-        homePageModelList.add(new HomePageModel(2,"Deals of the day",horizontalProductScrollModalList));
-        homePageModelList.add(new HomePageModel(3,"Deals of the day",horizontalProductScrollModalList));
-        homePageModelList.add(new HomePageModel(1,R.drawable.horizontal_banner_ad,"#ff0000"));
-        homePageModelList.add(new HomePageModel(3,"Deals of the day",horizontalProductScrollModalList));
-        homePageModelList.add(new HomePageModel(2,"Deals of the day",horizontalProductScrollModalList));
-        homePageModelList.add(new HomePageModel(1,R.drawable.banner_add,"#ff0000"));
-        homePageModelList.add(new HomePageModel(1,R.drawable.banner_add,"#000000"));
-        homePageModelList.add(new HomePageModel(2,"Deals of the day",horizontalProductScrollModalList));
-        homePageModelList.add(new HomePageModel(3,"Deals of the day",horizontalProductScrollModalList));
-        homePageModelList.add(new HomePageModel(1,R.drawable.horizontal_banner_ad,"#ff0000"));
-        homePageModelList.add(new HomePageModel(3,"Deals of the day",horizontalProductScrollModalList));
-        homePageModelList.add(new HomePageModel(2,"Deals of the day",horizontalProductScrollModalList));
-        homePageModelList.add(new HomePageModel(1,R.drawable.banner_add,"#ff0000"));
-
-
-        HomePageAdapter adapter = new HomePageAdapter(homePageModelList);
+        adapter = new HomePageAdapter(homePageModelList);
         homePageRecyclerView.setAdapter(adapter);
-        adapter.notifyDataSetChanged();
+
+        firebaseFirestore.collection("categories")
+                .document("HOME")
+                .collection("top_deals").orderBy("index").get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot documentSnapshot : task.getResult()) {
+                                if ((long) documentSnapshot.get("view_type") == 0) {
+                                    //Banner slider
+                                    List<SliderModel> sliderModelList = new ArrayList<>();
+                                    long num_of_banners = (long) documentSnapshot.get("num_of_banners");
+                                    for (long i = 1; i < num_of_banners + 1; i++) {
+                                        sliderModelList.add(new SliderModel(documentSnapshot.get("banner_" + i).toString()
+                                                , documentSnapshot.get("banner_" + i + "_bg").toString()));
+                                    }
+                                    homePageModelList.add(new HomePageModel(0, sliderModelList));
+                                } else if ((long) documentSnapshot.get("view_type") == 1) {
+                                    //strip ad banner
+                                    homePageModelList.add(new HomePageModel(1, documentSnapshot.get("strip_ad_banner").toString()
+                                            , documentSnapshot.get("bg_color").toString()));
+                                } else if ((long) documentSnapshot.get("view_type") == 2) {
+                                    //Horizontal scroll view
+                                    List<HorizontalProductScrollModal> horizontalProductScrollModalList = new ArrayList<>();
+                                    long num_of_products = (long) documentSnapshot.get("num_of_products");
+                                    for (long i = 1; i < num_of_products; i++) {
+                                        horizontalProductScrollModalList.add(new HorizontalProductScrollModal(documentSnapshot.get("pro_id_" + i).toString()
+                                                , documentSnapshot.get("pro_img_" + i).toString()
+                                                , documentSnapshot.get("pro_title_" + i).toString()
+                                                , documentSnapshot.get("pro_subtitle_" + i).toString()
+                                                , documentSnapshot.get("pro_price_" + i).toString()));
+                                    }
+                                    homePageModelList.add(new HomePageModel(2, documentSnapshot.get("layout_title").toString(),documentSnapshot.get("layout_bg").toString(),horizontalProductScrollModalList));
+
+                                } else if ((long) documentSnapshot.get("view_type") == 3) {
+
+                                }
+                            }
+                            adapter.notifyDataSetChanged();
+
+                        } else {
+                            String error = task.getException().getMessage();
+                            Toast.makeText(getContext(), error, Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
 
         return root;
     }

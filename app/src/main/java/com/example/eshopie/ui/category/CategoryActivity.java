@@ -37,56 +37,12 @@ public class CategoryActivity extends AppCompatActivity {
 
         categoryRecyclerView = findViewById(R.id.category_recyclerview);
 
-
-        /*----------------------------------- Banner Slider--------------------------------------*/
-
-        List<SliderModel> sliderModelList = new ArrayList<SliderModel>();
-
-        sliderModelList.add(new SliderModel(R.drawable.horizontal_banner_ad,"#077AE4"));
-        sliderModelList.add(new SliderModel(R.drawable.home,"#077AE4"));
-        sliderModelList.add(new SliderModel(R.drawable.mail_green,"#077AE4"));
-
-        sliderModelList.add(new SliderModel(R.drawable.banner_add,"#077AE4"));
-        sliderModelList.add(new SliderModel(R.drawable.check,"#077AE4"));
-        sliderModelList.add(new SliderModel(R.drawable.add_circle_outline,"#077AE4"));
-        sliderModelList.add(new SliderModel(R.drawable.horizontal_banner_ad,"#077AE4"));
-
-        sliderModelList.add(new SliderModel(R.drawable.home,"#077AE4"));
-        sliderModelList.add(new SliderModel(R.drawable.mail_green,"#077AE4"));
-        sliderModelList.add(new SliderModel(R.drawable.banner_add,"#077AE4"));
-
-
-        /*------------------------horizontal product Layout-------------------------------------------*/
-
-        List<HorizontalProductScrollModal> horizontalProductScrollModalList = new ArrayList<>();
-        horizontalProductScrollModalList.add(new HorizontalProductScrollModal(R.drawable.phone,"Redmi","625 processor","Rs.6999/-"));
-        horizontalProductScrollModalList.add(new HorizontalProductScrollModal(R.drawable.phone,"Redmi","625 processor","Rs.6999/-"));
-        horizontalProductScrollModalList.add(new HorizontalProductScrollModal(R.drawable.phone,"Redmi","625 processor","Rs.6999/-"));
-        horizontalProductScrollModalList.add(new HorizontalProductScrollModal(R.drawable.phone,"Redmi","625 processor","Rs.6999/-"));
-        horizontalProductScrollModalList.add(new HorizontalProductScrollModal(R.drawable.phone,"Redmi","625 processor","Rs.6999/-"));
-        horizontalProductScrollModalList.add(new HorizontalProductScrollModal(R.drawable.phone,"Redmi","625 processor","Rs.6999/-"));
-        horizontalProductScrollModalList.add(new HorizontalProductScrollModal(R.drawable.phone,"Redmi","625 processor","Rs.6999/-"));
-        horizontalProductScrollModalList.add(new HorizontalProductScrollModal(R.drawable.phone,"Redmi","625 processor","Rs.6999/-"));
-        horizontalProductScrollModalList.add(new HorizontalProductScrollModal(R.drawable.phone,"Redmi","625 processor","Rs.6999/-"));
-
-
         /*-------------------------------------Main Recycler view--------------------------------------*/
 
         LinearLayoutManager testingLinearLayoutManager = new LinearLayoutManager(this);
         testingLinearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         categoryRecyclerView.setLayoutManager(testingLinearLayoutManager);
-
         List<HomePageModel> homePageModelList = new ArrayList<>();
-
-        homePageModelList.add(new HomePageModel(0,sliderModelList));
-        homePageModelList.add(new HomePageModel(1,R.drawable.banner_add,"#000000"));
-        homePageModelList.add(new HomePageModel(2,"Deals of the day",horizontalProductScrollModalList));
-        homePageModelList.add(new HomePageModel(3,"Deals of the day",horizontalProductScrollModalList));
-        homePageModelList.add(new HomePageModel(1,R.drawable.horizontal_banner_ad,"#ff0000"));
-        homePageModelList.add(new HomePageModel(3,"Deals of the day",horizontalProductScrollModalList));
-        homePageModelList.add(new HomePageModel(2,"Deals of the day",horizontalProductScrollModalList));
-        homePageModelList.add(new HomePageModel(1,R.drawable.banner_add,"#ff0000"));
-
         HomePageAdapter adapter = new HomePageAdapter(homePageModelList);
         categoryRecyclerView.setAdapter(adapter);
         adapter.notifyDataSetChanged();

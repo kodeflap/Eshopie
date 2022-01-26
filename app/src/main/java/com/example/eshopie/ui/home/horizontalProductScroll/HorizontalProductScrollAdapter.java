@@ -10,6 +10,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.eshopie.R;
 import com.example.eshopie.model.HorizontalProductScrollModal;
 import com.example.eshopie.ui.product.ProductDetails;
@@ -28,7 +30,7 @@ public class HorizontalProductScrollAdapter extends RecyclerView.Adapter<Horizon
     @NonNull
     @Override
     public HorizontalProductScrollAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.horizontal_scroll_item_layout,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.horizontal_scroll_item_layout, parent, false);
 
         return new ViewHolder(view);
     }
@@ -36,15 +38,15 @@ public class HorizontalProductScrollAdapter extends RecyclerView.Adapter<Horizon
     @Override
     public void onBindViewHolder(@NonNull HorizontalProductScrollAdapter.ViewHolder holder, int position) {
 
-       int resource = horizontalProductScrollModalsList.get(position).getProductImage();
-       String title = horizontalProductScrollModalsList.get(position).getProductTitle();
-       String description = horizontalProductScrollModalsList.get(position).getProductDescription();
-       String price = horizontalProductScrollModalsList.get(position).getProductPrice();
+        String resource = horizontalProductScrollModalsList.get(position).getProductImage();
+        String title = horizontalProductScrollModalsList.get(position).getProductTitle();
+        String description = horizontalProductScrollModalsList.get(position).getProductDescription();
+        String price = horizontalProductScrollModalsList.get(position).getProductPrice();
 
-       holder.setProductImage(resource);
-       holder.setProductTitle(title);
-       holder.setProductDescription(description);
-       holder.setProductPrice(price);
+        holder.setProductImage(resource);
+        holder.setProductTitle(title);
+        holder.setProductDescription(description);
+        holder.setProductPrice(price);
     }
 
     @Override
@@ -52,8 +54,7 @@ public class HorizontalProductScrollAdapter extends RecyclerView.Adapter<Horizon
 
         if (horizontalProductScrollModalsList.size() > 8) {
             return 8;
-        }
-        else {
+        } else {
             return horizontalProductScrollModalsList.size();
         }
     }
@@ -72,6 +73,8 @@ public class HorizontalProductScrollAdapter extends RecyclerView.Adapter<Horizon
             productDescription = itemView.findViewById(R.id.hs_product_description);
             productPrice = itemView.findViewById(R.id.hs__product_price);
 
+            productImage.setScaleType(ImageView.ScaleType.FIT_CENTER);
+
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -81,8 +84,9 @@ public class HorizontalProductScrollAdapter extends RecyclerView.Adapter<Horizon
             });
         }
 
-        private void setProductImage(int resource) {
-            productImage.setImageResource(resource);
+        private void setProductImage(String resource) {
+            //Glide
+            Glide.with(itemView.getContext()).load(resource).apply(new RequestOptions().placeholder(R.drawable.home)).into(productImage);
         }
 
         private void setProductTitle(String title) {
@@ -94,7 +98,7 @@ public class HorizontalProductScrollAdapter extends RecyclerView.Adapter<Horizon
         }
 
         private void setProductPrice(String price) {
-            productPrice.setText(price);
+            productPrice.setText("Rs." + price);
         }
     }
 }

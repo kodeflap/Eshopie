@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Eshopie2/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1315" />
+        <entry key="..\:/Eshopie2/app/src/main/res/drawable/add_circle_outline.xml" value="0.1" />
         <entry key="..\:/Eshopie2/app/src/main/res/drawable/border_bg.xml" value="0.1315" />
         <entry key="..\:/Eshopie2/app/src/main/res/drawable/button_bg.xml" value="0.1315" />
         <entry key="..\:/Eshopie2/app/src/main/res/drawable/cart.xml" value="0.1315" />
@@ -35,7 +36,7 @@
         <entry key="..\:/Eshopie2/app/src/main/res/layout/app_bar_home.xml" value="0.26823238566131025" />
         <entry key="..\:/Eshopie2/app/src/main/res/layout/cart_item_layout.xml" value="0.18" />
         <entry key="..\:/Eshopie2/app/src/main/res/layout/cart_total_amount_layout.xml" value="0.22" />
-        <entry key="..\:/Eshopie2/app/src/main/res/layout/category_item.xml" value="0.33" />
+        <entry key="..\:/Eshopie2/app/src/main/res/layout/category_item.xml" value="0.22" />
         <entry key="..\:/Eshopie2/app/src/main/res/layout/content_home.xml" value="0.1" />
         <entry key="..\:/Eshopie2/app/src/main/res/layout/content_home2.xml" value="0.1" />
         <entry key="..\:/Eshopie2/app/src/main/res/layout/coupon_dialog.xml" value="0.21" />
