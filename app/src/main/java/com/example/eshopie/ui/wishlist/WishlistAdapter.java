@@ -12,6 +12,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.eshopie.R;
 import com.example.eshopie.model.WishlistModel;
 import com.example.eshopie.ui.product.ProductDetails;
@@ -37,16 +39,16 @@ public class WishlistAdapter extends RecyclerView.Adapter<WishlistAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        int resource = wishlistModelList.get(position).getProductImage();
+        String resource = wishlistModelList.get(position).getProductImage();
         String title = wishlistModelList.get(position).getProductTitle();
-        int freeCoupons = wishlistModelList.get(position).getFreeCoupons();
+        long freeCoupons = wishlistModelList.get(position).getFreeCoupons();
         String ratings = wishlistModelList.get(position).getRating();
-        int totalRatings = wishlistModelList.get(position).getTotalRatings();
+        long totalRatings = wishlistModelList.get(position).getTotalRatings();
         String productPrice = wishlistModelList.get(position).getProductPrice();
         String cuttedPrice = wishlistModelList.get(position).getCuttedPrice();
-        String paymentMethod = wishlistModelList.get(position).getPaymentMethod();
+        boolean paymentMethod = wishlistModelList.get(position).isCod();
 
-        holder.setData(resource,title,freeCoupons,ratings,totalRatings,productPrice,cuttedPrice,paymentMethod);
+        holder.setData(resource, title, freeCoupons, ratings, totalRatings, productPrice, cuttedPrice, paymentMethod);
     }
 
     @Override
@@ -74,7 +76,7 @@ public class WishlistAdapter extends RecyclerView.Adapter<WishlistAdapter.ViewHo
             productTitle = itemView.findViewById(R.id.wishlist_product_title);
             freeCoupons = itemView.findViewById(R.id.wishlist_free_coupons);
             couponIcon = itemView.findViewById(R.id.wishlist_coupon_icon);
-            ratings = itemView.findViewById(R.id.wishlist_product_rating);
+            ratings = itemView.findViewById(R.id.product_rating_view);
             totalRatings = itemView.findViewById(R.id.wishlist_total_rating);
             priceCut = itemView.findViewById(R.id.wishlist_price_cut);
             productPrice = itemView.findViewById(R.id.wishlist_product_price);
@@ -83,32 +85,34 @@ public class WishlistAdapter extends RecyclerView.Adapter<WishlistAdapter.ViewHo
             deleteBtn = itemView.findViewById(R.id.wishlist_delete_btn);
         }
 
-        private void setData(int resource, String title, int freeCouponsNo, String averageRate, int totalRatingsNo, String price, String cuttedPriceValue, String payMethod) {
-            productImage.setImageResource(resource);
+        private void setData(String resource, String title, long freeCouponsNo, String averageRate, long totalRatingsNo, String price, String cuttedPriceValue, boolean cod) {
+            //Glide
+            Glide.with(itemView.getContext()).load(resource).apply(new RequestOptions().placeholder(R.drawable.home)).into(productImage);
             productTitle.setText(title);
             if (freeCouponsNo != 0) {
                 couponIcon.setVisibility(View.VISIBLE);
                 if (freeCouponsNo == 1) {
-                    freeCoupons.setText(" Free " + freeCouponsNo+" coupon");
+                    freeCoupons.setText(" Free " + freeCouponsNo + " coupon");
+                } else {
+                    freeCoupons.setText("Free " + freeCouponsNo + " coupons");
                 }
-                else {
-                    freeCoupons.setText("Free "+freeCouponsNo+" coupons");
-                }
-            }
-            else {
+            } else {
                 couponIcon.setVisibility(View.INVISIBLE);
                 freeCoupons.setVisibility(View.INVISIBLE);
             }
-            ratings.setText(averageRate);
-            totalRatings.setText(totalRatingsNo+"ratings");
-            productPrice.setText(price);
-            cuttedPrice.setText(cuttedPriceValue);
-            paymentMethod.setText(payMethod);
+            ratings.setText(" "+averageRate);
+            totalRatings.setText(totalRatingsNo + " ratings");
+            productPrice.setText("Rs "+price);
+            cuttedPrice.setText("Rs "+cuttedPriceValue);
+            if (cod) {
+                paymentMethod.setVisibility(View.VISIBLE);
+            } else {
+                paymentMethod.setVisibility(View.INVISIBLE);
+            }
 
             if (wishList) {
                 deleteBtn.setVisibility(View.VISIBLE);
-            }
-            else {
+            } else {
                 deleteBtn.setVisibility(View.GONE);
             }
 

@@ -46,12 +46,14 @@
 
     <TextView
         android:id="@+id/product_title"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
         android:text="Product Title"
         android:textColor="@color/black"
         android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/viewpager_indicator" />
 
@@ -69,9 +71,9 @@
         app:layout_constraintTop_toBottomOf="@+id/product_title">
 
         <TextView
-            android:id="@+id/wishlist_product_rating"
+            android:id="@+id/product_rating_view"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="22dp"
             android:layout_marginStart="2dp"
             android:layout_marginEnd="2dp"
             android:text="4.5"
@@ -133,14 +135,14 @@
         app:layout_constraintTop_toTopOf="@+id/cutted_price" />
 
     <ImageView
-        android:id="@+id/code_indicator_imageview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/cod_indicator_imageview"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_marginEnd="16dp"
         app:layout_constraintBottom_toBottomOf="@+id/cutted_price"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/viewpager_indicator"
-        app:srcCompat="@drawable/googleg_standard_color_18" />
+        app:srcCompat="@drawable/cod" />
 
     <TextView
         android:id="@+id/tv_cod_indicator"
@@ -149,9 +151,9 @@
         android:layout_marginTop="8dp"
         android:text="Available"
         android:textSize="12sp"
-        app:layout_constraintEnd_toEndOf="@+id/code_indicator_imageview"
-        app:layout_constraintStart_toStartOf="@+id/code_indicator_imageview"
-        app:layout_constraintTop_toBottomOf="@+id/code_indicator_imageview" />
+        app:layout_constraintEnd_toEndOf="@+id/cod_indicator_imageview"
+        app:layout_constraintStart_toStartOf="@+id/cod_indicator_imageview"
+        app:layout_constraintTop_toBottomOf="@+id/cod_indicator_imageview" />
 
     <LinearLayout
         android:id="@+id/cart_coupen_redemption_layout"

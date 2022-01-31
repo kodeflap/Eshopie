@@ -9,6 +9,8 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.eshopie.R;
 import com.example.eshopie.model.HorizontalProductScrollModal;
 import com.example.eshopie.ui.product.ProductDetails;
@@ -42,7 +44,7 @@ public class GridProductLayoutAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         View view;
         if (convertView == null) {
-            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.horizontal_scroll_item_layout,null);
+            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.horizontal_scroll_item_layout, null);
             view.setElevation(0);
             view.setBackgroundColor(Color.parseColor("#ffffff"));
 
@@ -59,13 +61,15 @@ public class GridProductLayoutAdapter extends BaseAdapter {
             TextView productDescription = view.findViewById(R.id.hs_product_description);
             TextView productPrice = view.findViewById(R.id.hs_product_title);
 
-           // productImage.setImageResource(horizontalProductScrollModalList.get(position).getProductImage());
+            //Glide
+            Glide.with(parent.getContext()).load(horizontalProductScrollModalList.get(position).getProductImage()).apply(new RequestOptions().placeholder(R.drawable.home)).into(productImage);
+
+
             productTitle.setText(horizontalProductScrollModalList.get(position).getProductTitle());
             productDescription.setText(horizontalProductScrollModalList.get(position).getProductDescription());
-            productPrice.setText(horizontalProductScrollModalList.get(position).getProductPrice());
+            productPrice.setText("Rs " + horizontalProductScrollModalList.get(position).getProductPrice());
 
-        }
-        else {
+        } else {
             view = convertView;
         }
         return view;

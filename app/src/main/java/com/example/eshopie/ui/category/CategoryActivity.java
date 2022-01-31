@@ -1,5 +1,9 @@
 package com.example.eshopie.ui.category;
 
+import static com.example.eshopie.db.DBQueries.list;
+import static com.example.eshopie.db.DBQueries.loadedCategoryList;
+import static com.example.eshopie.db.DBQueries.setFragmentData;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -12,6 +16,7 @@ import android.view.MenuItem;
 
 
 import com.example.eshopie.R;
+import com.example.eshopie.db.DBQueries;
 import com.example.eshopie.model.HomePageModel;
 import com.example.eshopie.model.HorizontalProductScrollModal;
 import com.example.eshopie.model.SliderModel;
@@ -24,12 +29,14 @@ import java.util.List;
 public class CategoryActivity extends AppCompatActivity {
 
     private RecyclerView categoryRecyclerView;
+    private HomePageAdapter adapter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_category);
-        Toolbar toolbar = (Toolbar)findViewById(R.id.category_toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.category_toolbar);
         setSupportActionBar(toolbar);
         String title = getIntent().getStringExtra("CategoryName");
         getSupportActionBar().setTitle(title);
@@ -42,15 +49,28 @@ public class CategoryActivity extends AppCompatActivity {
         LinearLayoutManager testingLinearLayoutManager = new LinearLayoutManager(this);
         testingLinearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         categoryRecyclerView.setLayoutManager(testingLinearLayoutManager);
-        List<HomePageModel> homePageModelList = new ArrayList<>();
-        HomePageAdapter adapter = new HomePageAdapter(homePageModelList);
+
+        int listPos = 0;
+        for (int i = 0; i < loadedCategoryList.size(); i++) {
+            if (loadedCategoryList.get(i).equals(title.toUpperCase())) {
+                listPos = i;
+            }
+        }
+        if (listPos == 0) {
+            loadedCategoryList.add(title.toUpperCase());
+            list.add(new ArrayList<HomePageModel>());
+            adapter = new HomePageAdapter(list.get(loadedCategoryList.size() - 1));
+            setFragmentData(adapter, this, loadedCategoryList.size() - 1,title);
+        } else {
+            adapter = new HomePageAdapter(list.get(listPos));
+        }
         categoryRecyclerView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.search_icon,menu);
+        getMenuInflater().inflate(R.menu.search_icon, menu);
         return true;
     }
 
@@ -59,8 +79,7 @@ public class CategoryActivity extends AppCompatActivity {
         int id = item.getItemId();
         if (id == R.id.action_search) {
             return true;
-        }
-        else if (id == android.R.id.home){
+        } else if (id == android.R.id.home) {
             finish();
             return true;
         }

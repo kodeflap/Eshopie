@@ -25,6 +25,7 @@ import com.example.eshopie.R;
 import com.example.eshopie.model.HomePageModel;
 import com.example.eshopie.model.HorizontalProductScrollModal;
 import com.example.eshopie.model.SliderModel;
+import com.example.eshopie.model.WishlistModel;
 import com.example.eshopie.ui.home.horizontalProductScroll.HorizontalProductScrollAdapter;
 import com.example.eshopie.ui.home.slider.SliderAdapter;
 import com.example.eshopie.ui.product.ProductDetails;
@@ -97,13 +98,15 @@ public class HomePageAdapter extends RecyclerView.Adapter {
             case HomePageModel.HORIZONTAL_PRODUCT_VIEW:
                 String layout_bg = homePageModelList.get(position).getBackgroundColor();
                 String horizontalLayoutTitle = homePageModelList.get(position).getTitle();
+                List<WishlistModel> viewAllProductList = homePageModelList.get(position).getViewAllProductList();
                 List<HorizontalProductScrollModal> horizontalProductScrollModalList = homePageModelList.get(position).getHorizontalProductScrollModalList();
-                ((HorizontalProductViewHolder) holder).setHorizontalProductLayout(horizontalProductScrollModalList, horizontalLayoutTitle, layout_bg);
+                ((HorizontalProductViewHolder) holder).setHorizontalProductLayout(horizontalProductScrollModalList, horizontalLayoutTitle, layout_bg, viewAllProductList);
                 break;
             case HomePageModel.GRID_PRODUCT_VIEW:
+                String gridColor = homePageModelList.get(position).getBackgroundColor();
                 String gridLayoutTitle = homePageModelList.get(position).getTitle();
                 List<HorizontalProductScrollModal> gridProductScrollModalList = homePageModelList.get(position).getHorizontalProductScrollModalList();
-                ((GridProductViewHolder) holder).setGridProductLayout(gridProductScrollModalList, gridLayoutTitle);
+                ((GridProductViewHolder) holder).setGridProductLayout(gridProductScrollModalList, gridLayoutTitle, gridColor);
                 break;
             default:
                 return;
@@ -263,18 +266,20 @@ public class HomePageAdapter extends RecyclerView.Adapter {
 
         }
 
-        private void setHorizontalProductLayout(List<HorizontalProductScrollModal> horizontalProductScrollModalList, String title, String color) {
+        private void setHorizontalProductLayout(List<HorizontalProductScrollModal> horizontalProductScrollModalList, String title, String color, List<WishlistModel> viewAllProductList) {
 
             container.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor(color)));
             horizontalLayoutTitle.setText(title);
 
-            if (horizontalProductScrollModalList.size() > 8) {
+            if (horizontalProductScrollModalList.size() > 6) {
                 horizontalLayoutViewAllButton.setVisibility(View.VISIBLE);
                 horizontalLayoutViewAllButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        ViewAllActivity.wishlistModelList = viewAllProductList;
                         Intent horizontalViewAllIntent = new Intent(itemView.getContext(), ViewAllActivity.class);
                         horizontalViewAllIntent.putExtra("layout_code", 0);
+                        horizontalViewAllIntent.putExtra("title", title);
                         itemView.getContext().startActivity(horizontalViewAllIntent);
                     }
                 });
@@ -292,21 +297,23 @@ public class HomePageAdapter extends RecyclerView.Adapter {
         }
     }
 
-
     /*----------------------------Grid product----------------------------------*/
     private class GridProductViewHolder extends RecyclerView.ViewHolder {
         private TextView gridLayoutTitle;
         private Button gridLayoutViewAllBtn;
         private GridLayout gridProductLayout;
+        private ConstraintLayout container;
 
         public GridProductViewHolder(View itemView) {
             super(itemView);
             gridLayoutTitle = itemView.findViewById(R.id.grid_product_layout_title);
             gridLayoutViewAllBtn = itemView.findViewById(R.id.grid_product_layout_view_all);
             gridProductLayout = itemView.findViewById(R.id.grid_layout);
+            container = itemView.findViewById(R.id.grid_container);
         }
 
-        private void setGridProductLayout(List<HorizontalProductScrollModal> horizontalProductScrollModalList, String title) {
+        private void setGridProductLayout(List<HorizontalProductScrollModal> horizontalProductScrollModalList, String title, String color) {
+            container.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor(color)));
             gridLayoutTitle.setText(title);
 
             for (int i = 0; i < 4; i++) {
@@ -317,10 +324,10 @@ public class HomePageAdapter extends RecyclerView.Adapter {
                 gridProductLayout.getChildAt(i).setBackgroundColor(Color.parseColor("#ffffff"));
 
                 //Glide
-               // Glide.with(itemView.getContext()).load(horizontalProductScrollModalList.get())
+                Glide.with(itemView.getContext()).load(horizontalProductScrollModalList.get(i).getProductImage()).apply(new RequestOptions().placeholder(R.drawable.home)).into(productImage);
                 productTitle.setText(horizontalProductScrollModalList.get(i).getProductTitle());
                 productDescription.setText(horizontalProductScrollModalList.get(i).getProductDescription());
-                productPrice.setText(horizontalProductScrollModalList.get(i).getProductPrice());
+                productPrice.setText("Rs." + horizontalProductScrollModalList.get(i).getProductPrice());
 
                 gridProductLayout.getChildAt(i).setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -334,8 +341,11 @@ public class HomePageAdapter extends RecyclerView.Adapter {
             gridLayoutViewAllBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    ViewAllActivity.horizontalProductScrollModalList = horizontalProductScrollModalList;
+
                     Intent gridViewAllIntent = new Intent(itemView.getContext(), ViewAllActivity.class);
                     gridViewAllIntent.putExtra("layout_code", 1);
+                    gridViewAllIntent.putExtra("title", title);
                     itemView.getContext().startActivity(gridViewAllIntent);
                 }
             });

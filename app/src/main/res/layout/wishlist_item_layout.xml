@@ -20,13 +20,15 @@
 
     <TextView
         android:id="@+id/wishlist_product_title"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
         android:text="iphone"
-        android:textSize="16sp"
         android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/wishlist_product_image"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -64,7 +66,7 @@
         app:layout_constraintTop_toBottomOf="@+id/wishlist_free_coupons">
 
         <TextView
-            android:id="@+id/wishlist_product_rating"
+            android:id="@+id/product_rating_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="2dp"
@@ -149,7 +151,7 @@
         android:id="@+id/wishlist_price_cut"
         android:layout_width="0dp"
         android:layout_height="1dp"
-        android:background="?android:attr/listDivider"
+        android:backgroundTint="@color/black"
         app:layout_constraintBottom_toBottomOf="@+id/wishlist_cutted_price"
         app:layout_constraintEnd_toEndOf="@+id/wishlist_cutted_price"
         app:layout_constraintStart_toStartOf="@+id/wishlist_cutted_price"

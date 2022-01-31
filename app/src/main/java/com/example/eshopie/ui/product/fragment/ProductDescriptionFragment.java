@@ -1,5 +1,9 @@
 package com.example.eshopie.ui.product.fragment;
 
+import static com.example.eshopie.ui.product.ProductDetails.productDescription;
+import static com.example.eshopie.ui.product.ProductDetails.productOtherDetails;
+import static com.example.eshopie.ui.product.ProductDetails.tabPosition;
+
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,33 +11,30 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.eshopie.R;
 
 public class ProductDescriptionFragment extends Fragment {
 
-
     public ProductDescriptionFragment() {
         // Required empty public constructor
     }
 
-
-    public static ProductDescriptionFragment newInstance(String param1, String param2) {
-        ProductDescriptionFragment fragment = new ProductDescriptionFragment();
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-    }
+    private TextView descriptionBody;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-       View view = inflater.inflate(R.layout.fragment_product_description, container, false);
-       return view;
+        View view = inflater.inflate(R.layout.fragment_product_description, container, false);
+        descriptionBody = view.findViewById(R.id.tv_product_description);
+
+        if (tabPosition == 0) {
+            descriptionBody.setText(productDescription);
+        } else {
+           descriptionBody.setText(productOtherDetails);
+        }
+        return view;
     }
 }

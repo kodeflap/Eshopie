@@ -45,9 +45,7 @@ public class HomeActivity extends AppCompatActivity{
     private FrameLayout frameLayout;
     private int currentFragment;
     private NavigationView navigationView;
-    private ImageView actionBarLogo;
     private DrawerLayout drawer;
-
     private Window window;
 
     @Override
@@ -61,13 +59,8 @@ public class HomeActivity extends AppCompatActivity{
         setSupportActionBar(toolbar);
         window = getWindow();
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-
-       // actionBarLogo = binding.appBarHome.actionbarLogo;
         drawer = binding.drawerLayout;
         navigationView = binding.navView;
-       // actionBarLogo = findViewById(R.id.actionbar_logo);
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_orders, R.id.nav_rewards, R.id.nav_cart, R.id.nav_wishlist, R.id.nav_profile)
                 .setOpenableLayout(drawer)
@@ -77,13 +70,14 @@ public class HomeActivity extends AppCompatActivity{
         NavigationUI.setupWithNavController(navigationView, navController);
 
         frameLayout = findViewById(R.id.home_frameLayout);
+
         if (showCart) {
             drawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             destinationFragments("Cart", new CartFragment(), -2);
         } else {
             ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                    this,drawer,toolbar,R.string.drawer_open,R.string.drawer_close);
+                    this, drawer, toolbar, R.string.drawer_open, R.string.drawer_close);
             drawer.addDrawerListener(toggle);
             toggle.syncState();
             setFragment(new HomeFragment(), HOME_FRAGMENT);
@@ -103,7 +97,6 @@ public class HomeActivity extends AppCompatActivity{
                     showCart = false;
                     finish();
                 } else {
-                    actionBarLogo.setVisibility(View.VISIBLE);
                     invalidateOptionsMenu();
                     setFragment(new HomeFragment(), HOME_FRAGMENT);
                 }
@@ -173,7 +166,6 @@ public class HomeActivity extends AppCompatActivity{
     }
 
     private void destinationFragments(String title, Fragment fragment, int fragmentNo) {
-        actionBarLogo.setVisibility(View.GONE);
         getSupportActionBar().setDisplayShowTitleEnabled(true);
         getSupportActionBar().setTitle(title);
         invalidateOptionsMenu();

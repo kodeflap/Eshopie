@@ -61,10 +61,30 @@ public class HomePageModel {
         this.backgroundColor = backgroundColor;
     }
 
-    /*---------horizontal product scroll and grid product view------------------------------------------------*/
+
     private String title;
     private List<HorizontalProductScrollModal> horizontalProductScrollModalList;
 
+    /*---------------------------------------horizontal product scroll ------------------------------------------------*/
+    private  List<WishlistModel> viewAllProductList;
+
+    public HomePageModel(int type, String title, String backgroundColor, List<HorizontalProductScrollModal> horizontalProductScrollModalList,List<WishlistModel> viewAllproductList) {
+        this.type = type;
+        this.title = title;
+        this.backgroundColor = backgroundColor;
+        this.horizontalProductScrollModalList = horizontalProductScrollModalList;
+        this.viewAllProductList = viewAllproductList;
+    }
+
+    public List<WishlistModel> getViewAllProductList() {
+        return viewAllProductList;
+    }
+
+    public void setViewAllProductList(List<WishlistModel> viewAllProductList) {
+        this.viewAllProductList = viewAllProductList;
+    }
+
+    /*------------------------------------------------- grid product view------------------------------------------------*/
     public HomePageModel(int type, String title, String backgroundColor, List<HorizontalProductScrollModal> horizontalProductScrollModalList) {
         this.type = type;
         this.title = title;

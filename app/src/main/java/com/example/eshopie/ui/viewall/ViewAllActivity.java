@@ -24,6 +24,8 @@ public class ViewAllActivity extends AppCompatActivity {
 
     private RecyclerView viewAllRecyclerView;
     private GridView viewAllGridView;
+    public static List<HorizontalProductScrollModal> horizontalProductScrollModalList;
+    public static List<WishlistModel> wishlistModelList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +35,7 @@ public class ViewAllActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.v_toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(true);
+        getSupportActionBar().setTitle(getIntent().getStringExtra("title"));
         getSupportActionBar().setTitle("Deals of the day");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -47,24 +50,12 @@ public class ViewAllActivity extends AppCompatActivity {
             linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
             viewAllRecyclerView.setLayoutManager(linearLayoutManager);
 
-            List<WishlistModel> wishlistModelList = new ArrayList<>();
-            wishlistModelList.add(new WishlistModel(R.drawable.phone, "iphone", 1, "3", 145, "Rs.7999/-", "Rs.9999", "Cash on delivery"));
-            wishlistModelList.add(new WishlistModel(R.drawable.phone, "iphone", 0, "3", 145, "Rs.7999/-", "Rs.9999", "Cash on delivery"));
-            wishlistModelList.add(new WishlistModel(R.drawable.phone, "iphone", 1, "3", 145, "Rs.7999/-", "Rs.9999", "Cash on delivery"));
-            wishlistModelList.add(new WishlistModel(R.drawable.phone, "iphone", 1, "3", 145, "Rs.7999/-", "Rs.9999", "Cash on delivery"));
-            wishlistModelList.add(new WishlistModel(R.drawable.phone, "iphone", 4, "3", 145, "Rs.7999/-", "Rs.9999", "Cash on delivery"));
-            wishlistModelList.add(new WishlistModel(R.drawable.phone, "iphone", 1, "3", 145, "Rs.7999/-", "Rs.9999", "Cash on delivery"));
-            wishlistModelList.add(new WishlistModel(R.drawable.phone, "iphone", 1, "3", 145, "Rs.7999/-", "Rs.9999", "Cash on delivery"));
-
             WishlistAdapter wishlistAdapter = new WishlistAdapter(wishlistModelList, true);
             viewAllRecyclerView.setAdapter(wishlistAdapter);
             wishlistAdapter.notifyDataSetChanged();
         } else if (layout_code == 1) {
             /*-------------------------------Grid view-----------------------------------------*/
             viewAllGridView.setVisibility(View.VISIBLE);
-
-            List<HorizontalProductScrollModal> horizontalProductScrollModalList = new ArrayList<>();
-
             GridProductLayoutAdapter gridProductLayoutAdapter = new GridProductLayoutAdapter(horizontalProductScrollModalList);
             viewAllGridView.setAdapter(gridProductLayoutAdapter);
         }

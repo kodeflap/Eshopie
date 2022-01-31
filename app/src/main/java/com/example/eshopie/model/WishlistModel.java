@@ -1,16 +1,16 @@
 package com.example.eshopie.model;
 
 public class WishlistModel {
-    private int productImage;
+    private String productImage;
     private String productTitle;
-    private int freeCoupons;
+    private long freeCoupons;
     private String rating;
-    private int totalRatings;
+    private long totalRatings;
     private String productPrice;
     private String cuttedPrice;
-    private String paymentMethod;
+    private boolean cod;
 
-    public WishlistModel(int productImage, String productTitle, int freeCoupons, String rating, int totalRatings, String productPrice, String cuttedPrice, String paymentMethod) {
+    public WishlistModel(String productImage, String productTitle, long freeCoupons, String rating, long totalRatings, String productPrice, String cuttedPrice, boolean cod) {
         this.productImage = productImage;
         this.productTitle = productTitle;
         this.freeCoupons = freeCoupons;
@@ -18,14 +18,14 @@ public class WishlistModel {
         this.totalRatings = totalRatings;
         this.productPrice = productPrice;
         this.cuttedPrice = cuttedPrice;
-        this.paymentMethod = paymentMethod;
+        this.cod = cod;
     }
 
-    public int getProductImage() {
+    public String getProductImage() {
         return productImage;
     }
 
-    public void setProductImage(int productImage) {
+    public void setProductImage(String productImage) {
         this.productImage = productImage;
     }
 
@@ -37,11 +37,11 @@ public class WishlistModel {
         this.productTitle = productTitle;
     }
 
-    public int getFreeCoupons() {
+    public long getFreeCoupons() {
         return freeCoupons;
     }
 
-    public void setFreeCoupons(int freeCoupons) {
+    public void setFreeCoupons(long freeCoupons) {
         this.freeCoupons = freeCoupons;
     }
 
@@ -53,11 +53,11 @@ public class WishlistModel {
         this.rating = rating;
     }
 
-    public int getTotalRatings() {
+    public long getTotalRatings() {
         return totalRatings;
     }
 
-    public void setTotalRatings(int totalRatings) {
+    public void setTotalRatings(long totalRatings) {
         this.totalRatings = totalRatings;
     }
 
@@ -77,11 +77,11 @@ public class WishlistModel {
         this.cuttedPrice = cuttedPrice;
     }
 
-    public String getPaymentMethod() {
-        return paymentMethod;
+    public boolean isCod() {
+        return cod;
     }
 
-    public void setPaymentMethod(String paymentMethod) {
-        this.paymentMethod = paymentMethod;
+    public void setCod(boolean cod) {
+        this.cod = cod;
     }
 }
