@@ -31,7 +31,7 @@ public class ProductImageAdapter extends PagerAdapter {
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
         ImageView productImage = new ImageView(container.getContext());
         //Glide
-        Glide.with(container.getContext()).load(productImages.get(position)).apply(new RequestOptions().placeholder(R.drawable.home)).into(productImage);
+        Glide.with(container.getContext()).load(productImages.get(position)).apply(new RequestOptions().placeholder(R.drawable.default_img)).into(productImage);
         container.addView(productImage, 0);
         return productImage;
     }

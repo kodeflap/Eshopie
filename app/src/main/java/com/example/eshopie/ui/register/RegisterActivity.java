@@ -1,15 +1,16 @@
 package com.example.eshopie.ui.register;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
-
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.widget.FrameLayout;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+
 import com.example.eshopie.R;
 import com.example.eshopie.ui.register.registerFragments.SignIn;
+import com.example.eshopie.ui.register.registerFragments.SignUp;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -36,6 +37,8 @@ public class RegisterActivity extends AppCompatActivity {
     public boolean onKeyDown(int keyCode, KeyEvent event) {
 
         if (keyCode == KeyEvent.KEYCODE_BACK) {
+            SignUp.disableCloseBtn = false;
+            SignIn.disableCloseBtn = false;
             if (onResetPasswordFragment) {
                 onResetPasswordFragment = false;
                 setFragment(new SignIn());

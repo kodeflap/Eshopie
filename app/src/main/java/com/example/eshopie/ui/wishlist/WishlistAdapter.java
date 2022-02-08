@@ -4,10 +4,11 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -15,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.eshopie.R;
+import com.example.eshopie.db.DBQueries;
 import com.example.eshopie.model.WishlistModel;
 import com.example.eshopie.ui.product.ProductDetails;
 
@@ -24,6 +26,7 @@ public class WishlistAdapter extends RecyclerView.Adapter<WishlistAdapter.ViewHo
 
     private List<WishlistModel> wishlistModelList;
     private Boolean wishList;
+    private int lastPos = -1;
 
     public WishlistAdapter(List<WishlistModel> wishlistModelList, Boolean wishList) {
         this.wishlistModelList = wishlistModelList;
@@ -39,6 +42,7 @@ public class WishlistAdapter extends RecyclerView.Adapter<WishlistAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        String productId = wishlistModelList.get(position).getProductId();
         String resource = wishlistModelList.get(position).getProductImage();
         String title = wishlistModelList.get(position).getProductTitle();
         long freeCoupons = wishlistModelList.get(position).getFreeCoupons();
@@ -48,7 +52,13 @@ public class WishlistAdapter extends RecyclerView.Adapter<WishlistAdapter.ViewHo
         String cuttedPrice = wishlistModelList.get(position).getCuttedPrice();
         boolean paymentMethod = wishlistModelList.get(position).isCod();
 
-        holder.setData(resource, title, freeCoupons, ratings, totalRatings, productPrice, cuttedPrice, paymentMethod);
+        holder.setData(productId, resource, title, freeCoupons, ratings, totalRatings, productPrice, cuttedPrice, paymentMethod, position);
+        //animation
+        if (lastPos < position) {
+            Animation animation = AnimationUtils.loadAnimation(holder.itemView.getContext(), R.anim.fade_in);
+            holder.itemView.setAnimation(animation);
+            lastPos = position;
+        }
     }
 
     @Override
@@ -85,9 +95,9 @@ public class WishlistAdapter extends RecyclerView.Adapter<WishlistAdapter.ViewHo
             deleteBtn = itemView.findViewById(R.id.wishlist_delete_btn);
         }
 
-        private void setData(String resource, String title, long freeCouponsNo, String averageRate, long totalRatingsNo, String price, String cuttedPriceValue, boolean cod) {
+        private void setData(String productId, String resource, String title, long freeCouponsNo, String averageRate, long totalRatingsNo, String price, String cuttedPriceValue, boolean cod, int index) {
             //Glide
-            Glide.with(itemView.getContext()).load(resource).apply(new RequestOptions().placeholder(R.drawable.home)).into(productImage);
+            Glide.with(itemView.getContext()).load(resource).apply(new RequestOptions().placeholder(R.drawable.default_img)).into(productImage);
             productTitle.setText(title);
             if (freeCouponsNo != 0) {
                 couponIcon.setVisibility(View.VISIBLE);
@@ -100,10 +110,10 @@ public class WishlistAdapter extends RecyclerView.Adapter<WishlistAdapter.ViewHo
                 couponIcon.setVisibility(View.INVISIBLE);
                 freeCoupons.setVisibility(View.INVISIBLE);
             }
-            ratings.setText(" "+averageRate);
+            ratings.setText(" " + averageRate);
             totalRatings.setText(totalRatingsNo + " ratings");
-            productPrice.setText("Rs "+price);
-            cuttedPrice.setText("Rs "+cuttedPriceValue);
+            productPrice.setText("Rs " + price);
+            cuttedPrice.setText("Rs " + cuttedPriceValue);
             if (cod) {
                 paymentMethod.setVisibility(View.VISIBLE);
             } else {
@@ -119,13 +129,17 @@ public class WishlistAdapter extends RecyclerView.Adapter<WishlistAdapter.ViewHo
             deleteBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(itemView.getContext(), "Delete", Toast.LENGTH_SHORT).show();
+                    if (!ProductDetails.runningWishlistQuery) {
+                        ProductDetails.runningWishlistQuery = true;
+                        DBQueries.removeFromWishlist(index, itemView.getContext());
+                    }
                 }
             });
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent productDetailsIntent = new Intent(itemView.getContext(), ProductDetails.class);
+                    productDetailsIntent.putExtra("pro_id", productId);
                     itemView.getContext().startActivity(productDetailsIntent);
                 }
             });
