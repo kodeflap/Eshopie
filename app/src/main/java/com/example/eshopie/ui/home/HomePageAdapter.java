@@ -340,7 +340,7 @@ public class HomePageAdapter extends RecyclerView.Adapter {
                 gridProductLayout.getChildAt(i).setBackgroundColor(Color.parseColor("#ffffff"));
 
                 if (!title.equals("")) {
-                    int finalI = i;
+                    final int finalI = i;
                     gridProductLayout.getChildAt(i).setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {

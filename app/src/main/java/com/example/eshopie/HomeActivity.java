@@ -51,6 +51,7 @@ public class HomeActivity extends AppCompatActivity {
     private int currentFragment;
     private NavigationView navigationView;
     public static DrawerLayout drawer;
+    public NavController navController;
     private Window window;
     public static Dialog signInDialog;
 
@@ -73,7 +74,7 @@ public class HomeActivity extends AppCompatActivity {
                 R.id.nav_orders, R.id.nav_rewards, R.id.nav_cart, R.id.nav_wishlist, R.id.nav_profile)
                 .setOpenableLayout(drawer)
                 .build();
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_home);
+        navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_home);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
         navigationView.getMenu().findItem(R.id.nav_sign_out).setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
@@ -91,7 +92,7 @@ public class HomeActivity extends AppCompatActivity {
         frameLayout = findViewById(R.id.home_frameLayout);
 
         if (showCart) {
-            drawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
+           // drawer.setDrawerLockMode(drawer.LOCK_MODE_LOCKED_CLOSED);
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             destinationFragments("Cart", new CartFragment(), -2);
         } else {
@@ -109,11 +110,7 @@ public class HomeActivity extends AppCompatActivity {
         super.onStart();
         //checking the current user
         currentUser = FirebaseAuth.getInstance().getCurrentUser();
-        if (currentUser == null) {
-            navigationView.getMenu().getItem(navigationView.getMenu().size() - 1).setEnabled(false);
-        } else {
-            navigationView.getMenu().getItem(navigationView.getMenu().size() - 1).setEnabled(true);
-        }
+        navigationView.getMenu().getItem(navigationView.getMenu().size() - 1).setEnabled(currentUser != null);
 
     }
 
@@ -183,11 +180,18 @@ public class HomeActivity extends AppCompatActivity {
     }
 
 
+
     @Override
     public boolean onSupportNavigateUp() {
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_home);
+        if (currentUser != null){
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
+        }
+        else {
+            drawer.closeDrawer(GravityCompat.START);
+            signInDialog.show();
+            return false;
+        }
     }
 
     private void setFragment(Fragment fragment, int fragmentNo) {

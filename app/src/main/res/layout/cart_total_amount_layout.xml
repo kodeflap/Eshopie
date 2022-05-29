@@ -148,7 +148,7 @@
 
     <ImageView
         android:id="@+id/happy_shopping_image"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
