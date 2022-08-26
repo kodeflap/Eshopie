@@ -115,5 +115,5 @@ to be developed.Some features are as follows.
  
  ## LICENSE
 
-[GPL-3.0 license](LICENSE)
+[GNU - General Public License v3.0](LICENSE)
 
