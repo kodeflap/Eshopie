@@ -1,9 +1,7 @@
 
 # Eshopie
 
-A shopping cart android app build using the java and firebase (Baas). The user can purchase the products given.
-  
-
+Online shopping is now a growing trend worldwide. Even every store has its own labeled app or they sell through different mobile app mediums. The user can enjoy their shopping at their convenience and no longer need the traditional approach of going to shop. They can choose from a lot of options and also gets the opportunity for various offers and discounts that can be applied in quick purchases and can save your favorite a wishlist. The easy money transactional way and refund help users to keep building trust fact in the app.
 
 ## Overview
 
@@ -23,13 +21,40 @@ User can scroll through the each section of categories according to the new deal
 * secured payment mode.
 * Rewards section.
 * Order history.
-## Build With
 
-* IDE - Android Studio
-* Baas - Firebase
-* Library - Glide
-* Language - Java
-## Run Locally
+## Tech Stack
+
+<table>
+  <tr>
+     <td>Mobile OS</td>
+     <td>Programming Language</td>
+     <td>ToolKit</td>
+     <td>Database</td>
+     <td>UI Framework</td>
+     <td>Libraries </td>
+  </tr>
+  <tr>
+     <td><ul><li>Android</li></ul></td>
+     <td><ul><li>Java</li></ul></td>
+     <td><ul><li>Android studio</li>
+     <li>Android SDK</li></ul></td>
+     <td><ul><li>Firebase</li></ul></td>
+     <td><ul><li>XML</li></ul></td>
+     <td>
+<ul>
+<li>Firebase</li>
+<li>Retrofit</li>
+<li>Glide</li>
+<li>Navigation</li>
+<li>Circular Image View</li>
+<li>Espresso</li>
+<li>Material Design</li>
+<li>Razorpay</li>
+<li>Paytm</li>
+<li>Google pay</li>
+</ul></td>
+  </tr>
+ </table>
 
 Clone the project in the android studio
 
