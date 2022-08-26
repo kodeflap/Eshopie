@@ -115,5 +115,5 @@ to be developed.Some features are as follows.
  
  ## LICENSE
 
-[MIT license](LICENSE)
+[GPL-3.0 license](LICENSE)
 
