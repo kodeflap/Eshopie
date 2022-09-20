@@ -1,4 +1,18 @@
 
+![Food To See You](https://user-images.githubusercontent.com/86681482/191313560-ee78bc95-c476-4c1b-8ccb-ba762f4992cf.gif)
+
+<p align = "center">
+      <img src = "https://badgen.net/badge/Open%20Source%20%3F/Yes%21/blue?icon=github" height = 25/>
+      <a href= "https://github.com/kodeflap/Eshopie/tags ">
+      <img src = "https://img.shields.io/github/release/kodeFlap/Eshopie.svg" height = 25/></a>
+      <a href= "https://github.com/kodeflap/Eshopie/blob/master/LICENSE ">
+      <img src = "https://img.shields.io/github/license/kodeFlap/Eshopie.svg" height = 25/></a>
+      <img src = "https://img.shields.io/github/contributors/kodeFlap/Eshopie.svg" height = 25/></a>
+      <img src = "https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square" height = 25/>
+      <a href= "https://gitHub.com/kodeflap/Eshopie/issues/ ">
+      <img src = "https://img.shields.io/github/issues/kodeFlap/Eshopie.svg" height = 25/></a>
+</p>
+
 # Eshopie
 
 Online shopping is now a growing trend worldwide. Even every store has its own labeled app or they sell through different mobile app mediums. The user can enjoy their shopping at their convenience and no longer need the traditional approach of going to shop. They can choose from a lot of options and also gets the opportunity for various offers and discounts that can be applied in quick purchases and can save your favorite a wishlist. The easy money transactional way and refund help users to keep building trust fact in the app.
