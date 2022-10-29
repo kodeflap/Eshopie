@@ -1,4 +1,4 @@
-
+8
 ![Food To See You](https://user-images.githubusercontent.com/86681482/191313560-ee78bc95-c476-4c1b-8ccb-ba762f4992cf.gif)
 
 <p align = "center">
@@ -94,15 +94,15 @@ to be developed.Some features are as follows.
 
 ### To do
 ```
-* Payment section
-* designing enhancement
-* Product Description section
-* Notification
-* Search Bar
-* Wishlist
-* Product shipment progress section.
-* Profile Editing section
-* Admin Panel
+- [ ] Payment section
+- [ ] designing enhancement
+- [ ] Product Description section
+- [ ] Notification
+- [ ] Search Bar
+- [ ] Wishlist
+- [ ] Product shipment progress section.
+- [ ] Profile Editing section
+- [ ] Admin Panel
 ```
 
 ## Screenshots
