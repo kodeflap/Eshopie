@@ -93,8 +93,8 @@ Currently it is being in the development phase.It has certain features which is
 to be developed.Some features are as follows.
 
 ### To do
-```
-- [ ] Payment section
+
+- [ ] payment section
 - [ ] designing enhancement
 - [ ] Product Description section
 - [ ] Notification
@@ -103,7 +103,7 @@ to be developed.Some features are as follows.
 - [ ] Product shipment progress section.
 - [ ] Profile Editing section
 - [ ] Admin Panel
-```
+
 
 ## Screenshots
 <table>
