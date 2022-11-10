@@ -6,7 +6,7 @@
       <img src = "https://img.shields.io/github/release/kodeFlap/Eshopie.svg" height = 25/></a>
       <a href= "https://github.com/kodeflap/Eshopie/blob/master/LICENSE ">
       <img src = "https://img.shields.io/github/license/kodeFlap/Eshopie.svg" height = 25/></a>
-      <img src = "https://img.shields.io/github/contributors/kodeFlap/Eshopie.svg" height = 25/></a>
+      <img src = "https://img.shields.io/github/contributors/kodeFlap/Eshopie.svg" height = 25/>
       <img src = "https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square" height = 25/>
       <a href= "https://gitHub.com/kodeflap/Eshopie/issues/ ">
       <img src = "https://img.shields.io/github/issues/kodeFlap/Eshopie.svg" height = 25/></a>

@@ -1,9 +1,9 @@
 package com.example.eshopie.ui.home;
 
-
+import static com.example.eshopie.HomeActivity.drawer;
 import static com.example.eshopie.db.DBQueries.categoryModelList;
 import static com.example.eshopie.db.DBQueries.getCategories;
-import static com.example.eshopie.db.DBQueries.list;
+import static com.example.eshopie.db.DBQueries.homeList;
 import static com.example.eshopie.db.DBQueries.loadedCategoryList;
 import static com.example.eshopie.db.DBQueries.setFragmentData;
 
@@ -57,7 +57,6 @@ public class HomeFragment extends Fragment {
     public static SwipeRefreshLayout swipeRefreshLayout;
     private ConnectivityManager connectivityManager;
     private NetworkInfo networkInfo;
-
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -122,8 +121,8 @@ public class HomeFragment extends Fragment {
         connectivityManager = (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
         networkInfo = connectivityManager.getActiveNetworkInfo();
 
-        if (networkInfo != null && networkInfo.isConnected() == true) {
-           // drawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED);
+        if (networkInfo != null && networkInfo.isConnected()) {
+            //drawer.setDrawerLockMode(drawer.LOCK_MODE_UNLOCKED);
             categoryRecyclerView.setVisibility(View.VISIBLE);
             homePageRecyclerView.setVisibility(View.VISIBLE);
             noInternetConnection.setVisibility(View.GONE);
@@ -139,17 +138,17 @@ public class HomeFragment extends Fragment {
 
             /*-------------------------------------Main Recycler view--------------------------------------*/
 
-            if (list.size() == 0) {
+            if (homeList.size() == 0) {
                 loadedCategoryList.add("HOME");
-                list.add(new ArrayList<HomePageModel>());
+                homeList.add(new ArrayList<HomePageModel>());
                 setFragmentData(homePageRecyclerView, getContext(), 0, "home");
             } else {
-                adapter = new HomePageAdapter(list.get(0));
+                adapter = new HomePageAdapter(homeList.get(0));
                 adapter.notifyDataSetChanged();
             }
             homePageRecyclerView.setAdapter(adapter);
         } else {
-         //   drawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
+          //  drawer.setDrawerLockMode(drawer.LOCK_MODE_LOCKED_CLOSED);
             categoryRecyclerView.setVisibility(View.GONE);
             homePageRecyclerView.setVisibility(View.GONE);
             Glide.with(this).load(R.drawable.no_internet).into(noInternetConnection);
@@ -184,10 +183,10 @@ public class HomeFragment extends Fragment {
         networkInfo = connectivityManager.getActiveNetworkInfo(); //network checking
         //clearing the lists
         categoryModelList.clear();
-        list.clear();
+        homeList.clear();
         loadedCategoryList.clear();
         if (networkInfo != null && networkInfo.isConnected() == true) {
-           // drawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED);
+            //drawer.setDrawerLockMode(drawer.LOCK_MODE_UNLOCKED);
             categoryRecyclerView.setVisibility(View.VISIBLE);
             homePageRecyclerView.setVisibility(View.VISIBLE);
             noInternetConnection.setVisibility(View.GONE);
@@ -198,11 +197,11 @@ public class HomeFragment extends Fragment {
 
             getCategories(categoryRecyclerView, getContext());
             loadedCategoryList.add("HOME");                                       //loads category
-            list.add(new ArrayList<HomePageModel>());
+            homeList.add(new ArrayList<HomePageModel>());
             setFragmentData(homePageRecyclerView, getContext(), 0, "home");  //set data in fragment
 
         } else {
-          //  drawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
+            //drawer.setDrawerLockMode(drawer.LOCK_MODE_LOCKED_CLOSED);
             Toast.makeText(getContext(), "No internet connection", Toast.LENGTH_SHORT).show();
             Glide.with(getContext()).load(R.drawable.no_internet).into(noInternetConnection);
             noInternetConnection.setVisibility(View.VISIBLE);

@@ -42,7 +42,7 @@ public class DBQueries {
     public static List<CategoryModel> categoryModelList = new ArrayList<>();
 
     //List for storing data : parent list
-    public static List<List<HomePageModel>> list = new ArrayList<>();
+    public static List<List<HomePageModel>> homeList = new ArrayList<>();
     //List for storing the all the categories from firebase
     public static List<String> loadedCategoryList = new ArrayList<>();
     //wishlist list
@@ -94,10 +94,10 @@ public class DBQueries {
                                         sliderModelList.add(new SliderModel(documentSnapshot.get("banner_" + i).toString()
                                                 , documentSnapshot.get("banner_" + i + "_bg").toString()));
                                     }
-                                    list.get(index).add(new HomePageModel(0, sliderModelList));
+                                    homeList.get(index).add(new HomePageModel(0, sliderModelList));
                                 } else if ((long) documentSnapshot.get("view_type") == 1) {
                                     //strip ad banner
-                                    list.get(index).add(new HomePageModel(1, documentSnapshot.get("strip_ad_banner").toString()
+                                    homeList.get(index).add(new HomePageModel(1, documentSnapshot.get("strip_ad_banner").toString()
                                             , documentSnapshot.get("bg_color").toString()));
                                 } else if ((long) documentSnapshot.get("view_type") == 2) {
                                     //Main recycler view list
@@ -123,7 +123,7 @@ public class DBQueries {
                                                 , documentSnapshot.get("cutted_price_" + i).toString()
                                                 , (boolean) documentSnapshot.get("cod_" + i)));
                                     }
-                                    list.get(index).add(new HomePageModel(2, documentSnapshot.get("layout_title").toString(), documentSnapshot.get("layout_bg").toString(), horizontalProductScrollModalList, viewAllproductsList));
+                                    homeList.get(index).add(new HomePageModel(2, documentSnapshot.get("layout_title").toString(), documentSnapshot.get("layout_bg").toString(), horizontalProductScrollModalList, viewAllproductsList));
 
                                 } else if ((long) documentSnapshot.get("view_type") == 3) {
                                     //Grid view
@@ -136,11 +136,11 @@ public class DBQueries {
                                                 , documentSnapshot.get("pro_subtitle_" + i).toString()
                                                 , documentSnapshot.get("pro_price_" + i).toString()));
                                     }
-                                    list.get(index).add(new HomePageModel(3, documentSnapshot.get("layout_title").toString(), documentSnapshot.get("layout_bg").toString(), gridLayoutModelList));
+                                    homeList.get(index).add(new HomePageModel(3, documentSnapshot.get("layout_title").toString(), documentSnapshot.get("layout_bg").toString(), gridLayoutModelList));
 
                                 }
                             }
-                            HomePageAdapter homePageAdapter = new HomePageAdapter(list.get(index));
+                            HomePageAdapter homePageAdapter = new HomePageAdapter(homeList.get(index));
                             homepageRecyclerView.setAdapter(homePageAdapter);
                             homePageAdapter.notifyDataSetChanged();
                             //swipe refresh layout
@@ -212,29 +212,26 @@ public class DBQueries {
         });
     }
 
-    public static void loadCartList(Context context) {
+    public static void loadCartList(final Context context,Dialog dialog, boolean loadProductData) {
         cartList.clear();
         firebaseFirestore.collection("users").document(FirebaseAuth.getInstance().getUid()).collection("user_data").document("cart")
                 .get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                if (task.isSuccessful()) {
-                    for (long i = 0; i < (long) task.getResult().get("list_size"); i++) {
-                        cartList.add(task.getResult().get("pro_id_" + i).toString());
-                        if (cartList.contains(ProductDetails.proId)) {
-                            ProductDetails.ALREADY_ADDED_TO_CART = true;
+                    @Override
+                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (long i = 0; i < (long) task.getResult().get("list_size"); i++) {
+                                cartList.add(task.getResult().get("pro_id_" + i).toString());
+                                if (cartList.contains(ProductDetails.proId)) {
+                                    ProductDetails.ALREADY_ADDED_TO_CART = true;
                             if (addToWishlistButton != null) {
                                 ProductDetails.addToWishlistButton.setSupportImageTintList(context.getResources().getColorStateList(R.color.red));
                             }
                         } else {
-                            ProductDetails.ALREADY_ADDED_TO_WISHLIST = false;
-                            if (addToWishlistButton != null) {
-                                ProductDetails.addToWishlistButton.setSupportImageTintList(ColorStateList.valueOf(Color.parseColor("#736F6F")));
-                            }
+                            ProductDetails.ALREADY_ADDED_TO_CART = false;
                         }
                         //fetch data and added to list
                         if (loadProductData) {
-                            wishlistModelList.clear();
+                            cartModelList.clear();
                             String productId = task.getResult().get("pro_id_" + i).toString();
                             firebaseFirestore.collection("products").document(productId)
                                     .get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
@@ -265,7 +262,7 @@ public class DBQueries {
                     String error = task.getException().getMessage();
                     Toast.makeText(context, error, Toast.LENGTH_SHORT).show();
                 }
-                dialog.dismiss();
+                        dialog.dismiss();
             }
         });
     }
@@ -329,7 +326,7 @@ public class DBQueries {
 
     public static void clearData() {
         categoryModelList.clear();
-        list.clear();
+        homeList.clear();
         loadedCategoryList.clear();
         wishList.clear();
         wishlistModelList.clear();

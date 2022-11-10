@@ -1,6 +1,7 @@
 package com.example.eshopie.ui.category;
 
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -39,7 +40,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
         String icon = categoryModelList.get(position).getCategoryIcon();
         String name = categoryModelList.get(position).getCategoryName();
         holder.setCategory(name, position);

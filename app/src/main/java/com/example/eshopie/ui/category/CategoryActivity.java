@@ -1,6 +1,6 @@
 package com.example.eshopie.ui.category;
 
-import static com.example.eshopie.db.DBQueries.list;
+import static com.example.eshopie.db.DBQueries.homeList;
 import static com.example.eshopie.db.DBQueries.loadedCategoryList;
 import static com.example.eshopie.db.DBQueries.setFragmentData;
 
@@ -81,10 +81,10 @@ public class CategoryActivity extends AppCompatActivity {
         }
         if (listPos == 0) {
             loadedCategoryList.add(title.toUpperCase());
-            list.add(new ArrayList<HomePageModel>());
+            homeList.add(new ArrayList<HomePageModel>());
             setFragmentData(categoryRecyclerView, this, loadedCategoryList.size() - 1,title);
         } else {
-            adapter = new HomePageAdapter(list.get(listPos));
+            adapter = new HomePageAdapter(homeList.get(listPos));
         }
 
         adapter.notifyDataSetChanged();

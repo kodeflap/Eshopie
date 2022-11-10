@@ -107,6 +107,10 @@ public class ProductDetails extends AppCompatActivity {
     private LinearLayout ratingNumContainer;
     private LinearLayout ratingProgressBarContainer;
     private TextView avgRating;
+    private List<Float> allRatings = new ArrayList<>();
+    private float ratings;
+    private float ratingSum = 0f;
+    private float avgRatings;
 
     /*---------------------buy now variable------------------------------*/
     private Button buyNowBtn;
@@ -317,7 +321,7 @@ public class ProductDetails extends AppCompatActivity {
                                                     Toast.makeText(ProductDetails.this, error, Toast.LENGTH_SHORT).show();
                                                 }
                                                 //   addToWishlistButton.setEnabled(true);
-                                                runningWishlistQuery = true;
+                                                runningWishlistQuery = false;
                                             }
                                         });
                                     } else {
@@ -353,6 +357,20 @@ public class ProductDetails extends AppCompatActivity {
         });
 
         /*-----------------------------rating-------------------*/
+        rateNowContainer.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+            @Override
+            public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
+                if (currentUser == null) signInDialog.show();
+                else {
+                    ratings = rateNowContainer.getNumStars();
+                    allRatings.add(ratings);
+                    for (Float r : allRatings)
+                        ratingSum += r;
+                    avgRatings = ratingSum / (allRatings.size());
+                    rateNowContainer.setRating(rateNowContainer.getNumStars());
+                }
+            }
+        });
 
         /*-----------------------------buy now-------------------*/
         buyNowBtn.setOnClickListener(new View.OnClickListener() {
@@ -429,6 +447,8 @@ public class ProductDetails extends AppCompatActivity {
         });
         ///////////////////////sign In dialog///////////////////////////////////
         signInDialogFun(ProductDetails.this);
+
+
     }
 
     ///////////////////////loading dialog///////////////////////////////////
