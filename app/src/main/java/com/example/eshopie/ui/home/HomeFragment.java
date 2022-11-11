@@ -190,6 +190,7 @@ public class HomeFragment extends Fragment {
             categoryRecyclerView.setVisibility(View.VISIBLE);
             homePageRecyclerView.setVisibility(View.VISIBLE);
             noInternetConnection.setVisibility(View.GONE);
+            retryBtn.setVisibility(View.GONE);
             categoryAdapter = new CategoryAdapter(categoryModelFakeList);
             adapter = new HomePageAdapter(homePageModelFakeList);
             categoryRecyclerView.setAdapter(categoryAdapter);
@@ -200,7 +201,8 @@ public class HomeFragment extends Fragment {
             homeList.add(new ArrayList<HomePageModel>());
             setFragmentData(homePageRecyclerView, getContext(), 0, "home");  //set data in fragment
 
-        } else {
+        }
+        else {
             //drawer.setDrawerLockMode(drawer.LOCK_MODE_LOCKED_CLOSED);
             Toast.makeText(getContext(), "No internet connection", Toast.LENGTH_SHORT).show();
             Glide.with(getContext()).load(R.drawable.no_internet).into(noInternetConnection);
